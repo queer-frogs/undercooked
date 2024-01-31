@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://bpykeyknnfm0b"]
+[gd_scene load_steps=37 format=3 uid="uid://bpykeyknnfm0b"]
 
 [ext_resource type="Texture2D" uid="uid://dagkmdo0gm8j5" path="res://Jump (32x32).png" id="1_3e518"]
-[ext_resource type="Script" path="res://main_character.gd" id="1_622q4"]
+[ext_resource type="Script" path="res://main_character.gd" id="1_6r4hc"]
 [ext_resource type="Texture2D" uid="uid://c0j16ujclpusl" path="res://Idle (32x32).png" id="2_roxc4"]
 [ext_resource type="Texture2D" uid="uid://cvyddi83ddgm6" path="res://Run (32x32).png" id="4_6568r"]
+[ext_resource type="Texture2D" uid="uid://djwyfdxrdt8wt" path="res://Wall Jump (32x32).png" id="5_gu36a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddhdp"]
 atlas = ExtResource("2_roxc4")
@@ -101,6 +102,26 @@ region = Rect2(320, 0, 32, 32)
 atlas = ExtResource("4_6568r")
 region = Rect2(352, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_07j8u"]
+atlas = ExtResource("5_gu36a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6jeg"]
+atlas = ExtResource("5_gu36a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyr7k"]
+atlas = ExtResource("5_gu36a")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8gi2"]
+atlas = ExtResource("5_gu36a")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ats1y"]
+atlas = ExtResource("5_gu36a")
+region = Rect2(128, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8kbl"]
 animations = [{
 "frames": [{
@@ -189,20 +210,45 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07j8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6jeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyr7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8gi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ats1y")
+}],
+"loop": true,
+"name": &"wall_jump",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wcmes"]
 size = Vector2(20, 28)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_622q4")
+script = ExtResource("1_6r4hc")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(175, 337)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_e8kbl")
+animation = &"wall_jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(176, 342)
 shape = SubResource("RectangleShape2D_wcmes")
+
+[node name="PickUpMarker" type="Marker2D" parent="."]
+position = Vector2(177, 311)
+rotation = -0.0156681
