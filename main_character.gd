@@ -93,7 +93,7 @@ var double_jump_velocity : float
 # Multiplies the gravity by this when we release jump
 var release_gravity_multiplier : float
 
-
+var facing_left = false
 var jumps_left : int
 var holding_jump := false
 
@@ -119,6 +119,7 @@ func _init():
 	double_jump_velocity = calculate_jump_velocity2(double_jump_height, default_gravity)
 	release_gravity_multiplier = calculate_release_gravity_multiplier(
 			jump_velocity, min_jump_height, default_gravity)
+			
 
 
 func _ready():
@@ -137,14 +138,17 @@ func _input(_event):
 	acc.x = 0
 	if Input.is_action_pressed(input_left):
 		acc.x = -max_acceleration
+		facing_left = true
+		
 	
 	if Input.is_action_pressed(input_right):
 		acc.x = max_acceleration
+		facing_left = false
 	
 	if Input.is_action_just_pressed(input_jump):
 		holding_jump = true
 		start_jump_buffer_timer()
-		if (not can_hold_jump and can_ground_jump()) or can_double_jump():
+		if (not can_hold_jump and can_ground_jump()) or can_double_jump() or can_wall_jump():
 			jump()
 		
 	if Input.is_action_just_released(input_jump):
@@ -218,6 +222,11 @@ func can_ground_jump() -> bool:
 	
 	return false
 
+func can_wall_jump() -> bool:
+	if  is_on_wall_only():
+		return true
+	else :
+		return false
 
 func can_double_jump():
 	if jumps_left <= 1 and jumps_left == max_jump_amount:
@@ -243,7 +252,9 @@ func is_feet_on_ground():
 
 ## Perform a ground jump, or a double jump if the character is in the air.
 func jump():
-	if can_double_jump():
+	if can_wall_jump():
+		wall_jump() 
+	elif can_double_jump():
 		double_jump()
 	else:
 		ground_jump()
@@ -261,12 +272,25 @@ func double_jump():
 	jumps_left -= 1
 	jumped.emit(false)
 
+func wall_jump():
+	if jumps_left == max_jump_amount:
+		# Your first jump must be used when on the ground.
+		# If your first jump is used in the air, an additional jump will be taken away.
+		jumps_left -= 1
+	
+	velocity.y = -double_jump_velocity
+	if facing_left:
+		velocity.x = max_acceleration*0.3 
+	else :
+		velocity.x = -max_acceleration*0.3 
+	current_jump_type = JumpType.AIR
+	
+	jumped.emit(false)
 
 ## Perform a ground jump without checking if the player is able to.
 func ground_jump():
 	velocity.y = -jump_velocity
 	current_jump_type = JumpType.GROUND
-	jumps_left -= 1
 	coyote_timer.stop()
 	jumped.emit(true)
 
@@ -274,6 +298,7 @@ func ground_jump():
 func apply_gravity_multipliers_to(gravity) -> float:
 	if velocity.y * sign(default_gravity) > 0: # If we are falling
 		gravity *= falling_gravity_multiplier
+		
 	
 	# if we released jump and are still rising
 	elif velocity.y * sign(default_gravity) < 0:
