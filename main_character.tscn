@@ -208,5 +208,5 @@ position = Vector2(176, 342)
 shape = SubResource("RectangleShape2D_wcmes")
 
 [node name="PickUpMarker" type="Marker2D" parent="."]
-position = Vector2(176, 298)
+position = Vector2(176, 311)
 rotation = -0.0156681
