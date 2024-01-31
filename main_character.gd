@@ -14,6 +14,12 @@ signal hit_ground()
 ## Name of input action to jump.
 @export var input_jump : String = "jump"
 
+@export var input_up : String = "up"
+
+@export var input_down : String = "down"
+
+@export var input_dash : String = "dash"
+
 @onready var sprite_2d = $Sprite2D
 
 const DEFAULT_MAX_JUMP_HEIGHT = 110
@@ -76,6 +82,7 @@ var _jump_duration: float = DEFAULT_JUMP_DURATION
 @export var falling_gravity_multiplier = 1.5
 ## Amount of jumps allowed before needing to touch the ground again. Set to 2 for double jump.
 @export var max_jump_amount = 2
+@export var max_dash_amount = 1
 @export var max_acceleration = 7000
 @export var friction = 25
 @export var can_hold_jump : bool = true
@@ -84,6 +91,7 @@ var _jump_duration: float = DEFAULT_JUMP_DURATION
 ## Pressing jump this many seconds before hitting the ground will still make you jump.
 ## Only neccessary when can_hold_jump is unchecked.
 @export var jump_buffer : float = 0.1
+@export var dash_time : float = 1
 
 
 # These will be calcualted automatically
@@ -98,6 +106,8 @@ var facing_left = false
 var jumps_left : int
 var holding_jump := false
 
+var number_of_dash = max_dash_amount
+
 enum JumpType {NONE, GROUND, AIR}
 ## The type of jump the player is performing. Is JumpType.NONE if they player is on the ground.
 var current_jump_type: JumpType = JumpType.NONE
@@ -110,7 +120,9 @@ var acc = Vector2()
 # coyote_time and jump_buffer must be above zero to work. Otherwise, godot will throw an error.
 @onready var is_coyote_time_enabled = coyote_time > 0
 @onready var is_jump_buffer_enabled = jump_buffer > 0
+@onready var is_dash_enabled = dash_time > 0
 @onready var coyote_timer = Timer.new()
+@onready var dash_timer = Timer.new()
 @onready var jump_buffer_timer = Timer.new()
 
 
@@ -133,6 +145,11 @@ func _ready():
 		add_child(jump_buffer_timer)
 		jump_buffer_timer.wait_time = jump_buffer
 		jump_buffer_timer.one_shot = true
+		
+	if is_jump_buffer_enabled:
+		add_child(dash_timer)
+		dash_timer.wait_time = dash_time
+		dash_timer.one_shot = true
 
 
 func _input(_event):
@@ -165,6 +182,7 @@ func _physics_process(delta):
 		sprite_2d.animation="default"
 	if is_coyote_timer_running() or current_jump_type == JumpType.NONE:
 		jumps_left = max_jump_amount
+		number_of_dash = max_dash_amount
 	if is_feet_on_ground() and current_jump_type == JumpType.NONE:
 		start_coyote_timer()
 		
@@ -176,7 +194,18 @@ func _physics_process(delta):
 		
 		hit_ground.emit()
 	
-	
+	#responsable for the dash
+	if Input.is_action_pressed(input_dash) and number_of_dash > 0 and dash_timer.is_stopped()==true:
+		if Input.is_action_pressed(input_left):
+			velocity.x=-max_acceleration*0.5
+		elif Input.is_action_pressed(input_right) :
+			velocity.x=max_acceleration*0.5
+		start_dash_timer()
+		
+		
+		if can_ground_jump() and can_hold_jump:
+			jump()
+			sprite_2d.animation="jump()"
 	# Cannot do this in _input because it needs to be checked every frame
 	if Input.is_action_pressed(input_jump):
 		if can_ground_jump() and can_hold_jump:
@@ -206,6 +235,10 @@ func start_coyote_timer():
 func start_jump_buffer_timer():
 	if is_jump_buffer_enabled:
 		jump_buffer_timer.start()
+		
+func start_dash_timer():
+	if is_jump_buffer_enabled:
+		dash_timer.start()
 
 ## Use this instead of `not coyote_timer.is_stopped()`. This will always return false if 
 ## the coyote_timer is disabled
@@ -222,7 +255,12 @@ func is_jump_buffer_timer_running():
 		return true
 	
 	return false
-
+	
+func is_dash_timer_running():
+	if is_dash_enabled and not dash_timer.is_stopped():
+		return true
+	
+	return false
 
 func can_ground_jump() -> bool:
 	if jumps_left > 0 and current_jump_type == JumpType.NONE:
