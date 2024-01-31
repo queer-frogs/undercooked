@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://bpykeyknnfm0b"]
 
-[ext_resource type="Script" path="res://Player1Action.gd" id="1_1lb6e"]
+[ext_resource type="Script" path="res://PlayerAction.gd" id="1_2jqqk"]
 [ext_resource type="Texture2D" uid="uid://dagkmdo0gm8j5" path="res://Jump (32x32).png" id="1_3e518"]
 [ext_resource type="Texture2D" uid="uid://c0j16ujclpusl" path="res://Idle (32x32).png" id="2_roxc4"]
 [ext_resource type="Texture2D" uid="uid://cvyddi83ddgm6" path="res://Run (32x32).png" id="4_6568r"]
@@ -195,7 +195,7 @@ animations = [{
 size = Vector2(20, 28)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_1lb6e")
+script = ExtResource("1_2jqqk")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

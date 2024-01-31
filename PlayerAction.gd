@@ -5,7 +5,7 @@ const SPEED = 250.0
 const JUMP_VELOCITY = -600.0
 @onready var sprite_2d = $Sprite2D
 
-@export var player_id: int = 1
+@export var player_id = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
