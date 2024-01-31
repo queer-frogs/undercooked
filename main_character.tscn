@@ -229,7 +229,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"wall_jump",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wcmes"]
@@ -243,7 +243,6 @@ texture_filter = 1
 position = Vector2(175, 337)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_e8kbl")
-animation = &"wall_jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(176, 342)

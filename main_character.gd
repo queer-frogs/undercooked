@@ -14,6 +14,7 @@ signal hit_ground()
 ## Name of input action to jump.
 @export var input_jump : String = "jump"
 
+@onready var sprite_2d = $Sprite2D
 
 const DEFAULT_MAX_JUMP_HEIGHT = 110
 const DEFAULT_MIN_JUMP_HEIGHT = 60
@@ -150,12 +151,18 @@ func _input(_event):
 		start_jump_buffer_timer()
 		if (not can_hold_jump and can_ground_jump()) or can_double_jump() or can_wall_jump():
 			jump()
+			sprite_2d.animation="jump"
 		
 	if Input.is_action_just_released(input_jump):
 		holding_jump = false
 
 
 func _physics_process(delta):
+	sprite_2d.animation="default"
+	if velocity.x > 1 || velocity.x < -1 :
+		sprite_2d.animation="run"
+	else :
+		sprite_2d.animation="default"
 	if is_coyote_timer_running() or current_jump_type == JumpType.NONE:
 		jumps_left = max_jump_amount
 	if is_feet_on_ground() and current_jump_type == JumpType.NONE:
@@ -174,6 +181,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed(input_jump):
 		if can_ground_jump() and can_hold_jump:
 			jump()
+			sprite_2d.animation="jump()"
 	
 	var gravity = apply_gravity_multipliers_to(default_gravity)
 	acc.y = gravity
@@ -185,6 +193,8 @@ func _physics_process(delta):
 	
 	_was_on_ground = is_feet_on_ground()
 	move_and_slide()
+	
+	sprite_2d.flip_h=facing_left
 
 
 ## Use this instead of coyote_timer.start() to check if the coyote_timer is enabled first
@@ -277,7 +287,8 @@ func wall_jump():
 		# Your first jump must be used when on the ground.
 		# If your first jump is used in the air, an additional jump will be taken away.
 		jumps_left -= 1
-	
+		
+	sprite_2d.animation="wall_jump()"
 	velocity.y = -double_jump_velocity
 	if facing_left:
 		velocity.x = max_acceleration*0.3 
@@ -344,3 +355,4 @@ func calculate_friction(time_to_max):
 ## Formula from [url]https://www.reddit.com/r/gamedev/comments/bdbery/comment/ekxw9g4/?utm_source=share&utm_medium=web2x&context=3[/url]
 func calculate_speed(p_max_speed, p_friction):
 	return (p_max_speed / p_friction) - p_max_speed
+
