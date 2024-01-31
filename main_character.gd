@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -600.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var can_pick = true 	# can the player pick and item ?
 
 	
 func _physics_process(delta):

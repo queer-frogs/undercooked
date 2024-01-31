@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=31 format=3 uid="uid://bpykeyknnfm0b"]
 
 [ext_resource type="Texture2D" uid="uid://dagkmdo0gm8j5" path="res://Jump (32x32).png" id="1_3e518"]
@@ -207,3 +206,7 @@ sprite_frames = SubResource("SpriteFrames_e8kbl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(176, 342)
 shape = SubResource("RectangleShape2D_wcmes")
+
+[node name="PickUpMarker" type="Marker2D" parent="."]
+position = Vector2(176, 298)
+rotation = -0.0156681
