@@ -468,7 +468,7 @@ sources/0 = SubResource("TileSetAtlasSource_dbib4")
 size = Vector2(43.5, 40.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvl6y"]
-radius = 8.06226
+radius = 11.4018
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpolj"]
 atlas = ExtResource("4_45shc")
@@ -598,7 +598,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e0d4r"]
-radius = 10.0499
+radius = 21.0
 
 [node name="Node" type="Node"]
 
@@ -636,10 +636,11 @@ texture = ExtResource("4_ymlea")
 
 [node name="Apple" type="RigidBody2D" parent="."]
 position = Vector2(196, 563)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("6_5m86r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Apple"]
-visible = false
 shape = SubResource("CircleShape2D_lvl6y")
 
 [node name="sprite" type="AnimatedSprite2D" parent="Apple"]
@@ -656,9 +657,11 @@ rotation = -0.0236673
 shape = SubResource("CircleShape2D_e0d4r")
 
 [node name="Character1" parent="." instance=ExtResource("3_2jxds")]
+collision_layer = 3
 
 [node name="Character2" parent="." instance=ExtResource("3_2jxds")]
 position = Vector2(378, -114)
+collision_layer = 3
 input_left = "move_left_2"
 input_right = "move_right_2"
 input_jump = "jump_2"

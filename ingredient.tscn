@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://boj27qlbd1g2l"]
+
+[node name="Ingredient" type="Node2D"]
