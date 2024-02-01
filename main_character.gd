@@ -5,8 +5,7 @@ class_name PlatformerController2D
 signal jumped(is_ground_jump: bool)
 signal hit_ground()
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 @export var can_pick = true 	# can the player pick and item ?
 
 
@@ -209,12 +208,12 @@ func _physics_process(delta):
 		
 		if can_ground_jump() and can_hold_jump:
 			jump()
-			sprite_2d.animation="jump()"
+			sprite_2d.animation="jump"
 	# Cannot do this in _input because it needs to be checked every frame
 	if Input.is_action_pressed(input_jump):
 		if can_ground_jump() and can_hold_jump:
 			jump()
-			sprite_2d.animation="jump()"
+			sprite_2d.animation="jump"
 	
 	var gravity = apply_gravity_multipliers_to(default_gravity)
 	acc.y = gravity
@@ -330,7 +329,7 @@ func wall_jump():
 		# If your first jump is used in the air, an additional jump will be taken away.
 		jumps_left -= 1
 		
-	sprite_2d.animation="wall_jump()"
+	sprite_2d.animation="wall_jump"
 	velocity.y = -double_jump_velocity
 	if facing_left:
 		velocity.x = max_acceleration*0.3 
