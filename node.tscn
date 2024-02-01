@@ -461,7 +461,8 @@ texture = ExtResource("2_rmpv8")
 6:7/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_pw2rv"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_dbib4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hnrv"]
@@ -636,8 +637,8 @@ texture = ExtResource("4_ymlea")
 
 [node name="Apple" type="RigidBody2D" parent="."]
 position = Vector2(196, 563)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("6_5m86r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Apple"]
@@ -651,17 +652,17 @@ animation = &"idle"
 frame_progress = 0.612328
 
 [node name="PickArea" type="Area2D" parent="Apple"]
+collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Apple/PickArea"]
 rotation = -0.0236673
 shape = SubResource("CircleShape2D_e0d4r")
 
 [node name="Character1" parent="." instance=ExtResource("3_2jxds")]
-collision_layer = 3
 
 [node name="Character2" parent="." instance=ExtResource("3_2jxds")]
 position = Vector2(378, -114)
-collision_layer = 3
 input_left = "move_left_2"
 input_right = "move_right_2"
 input_jump = "jump_2"
