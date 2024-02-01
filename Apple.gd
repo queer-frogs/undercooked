@@ -17,6 +17,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if picked == true:
+		
 		self.position = player.get_node("PickUpMarker").global_position
 	elif just_dropped:
 		if randi() % 2 == 0:
@@ -27,7 +28,7 @@ func _process(_delta):
 		self.linear_velocity = Vector2(0,0)
 		self.position[1] -= 15
 		self.position[0] -= 15 * a
-		just_dropped = false		
+		just_dropped = false
 		#$CollisionShape2D.disabled = false
 		#$PickArea/CollisionShape2D.disabled = false
 		
@@ -36,6 +37,7 @@ func _input(_event):
 		if picked:
 			# drop
 			picked = false
+			player.can_pick = true
 			player = null
 			just_dropped = true
 		else:
@@ -46,6 +48,7 @@ func _input(_event):
 					player = body
 			if player != null and player.can_pick:
 				picked = true
+				player.can_pick = false
 				#$CollisionShape2D.disabled = true
 				#$PickArea/CollisionShape2D.disabled = true
 				

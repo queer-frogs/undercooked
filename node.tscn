@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://byx12llv7aqv1"]
+[gd_scene load_steps=32 format=3 uid="uid://byx12llv7aqv1"]
 
 [ext_resource type="Texture2D" uid="uid://ct4g2y2krmr1c" path="res://Blue.png" id="1_5xulf"]
 [ext_resource type="Texture2D" uid="uid://v06exrj5qf7g" path="res://Terrain (16x16).png" id="2_rmpv8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bmw40u13l6dwp" path="res://assets_temporaires/Items/Fruits/Apple.png" id="4_45shc"]
 [ext_resource type="Texture2D" uid="uid://1ifrr7so20dj" path="res://assets_temporaires/Items/Boxes/Box1/Idle.png" id="4_ymlea"]
 [ext_resource type="Script" path="res://Apple.gd" id="6_5m86r"]
+[ext_resource type="PackedScene" uid="uid://rnl0nqct56jw" path="res://Machine.tscn" id="8_awvib"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbib4"]
 texture = ExtResource("2_rmpv8")
@@ -645,7 +646,8 @@ texture = ExtResource("4_ymlea")
 
 [node name="Apple" type="RigidBody2D" parent="."]
 position = Vector2(196, 563)
-collision_layer = 2
+rotation = 0.0750863
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("6_5m86r")
 
@@ -666,6 +668,12 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Apple/PickArea"]
 rotation = -0.0236673
 shape = SubResource("CircleShape2D_e0d4r")
+
+[node name="Machine" parent="." instance=ExtResource("8_awvib")]
+texture_filter = 2
+position = Vector2(1033, 414)
+collision_layer = 8
+collision_mask = 10
 
 [node name="Character1" parent="." instance=ExtResource("3_2jxds")]
 

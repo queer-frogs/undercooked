@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://rnl0nqct56jw"]
+
+[ext_resource type="Script" path="res://Machine.gd" id="1_cnjhw"]
+[ext_resource type="Texture2D" uid="uid://bt2bne1eew7t2" path="res://assets_temporaires/Traps/Fire/On (16x32).png" id="2_i1b3t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_betbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i1b3t")
+}],
+"loop": true,
+"name": &"machine",
+"speed": 17.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8n7r"]
+size = Vector2(43.1307, 32.9903)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty2j2"]
+size = Vector2(107.481, 75.3252)
+
+[node name="Machine" type="RigidBody2D"]
+position = Vector2(58, 42)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_cnjhw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(7.5, -6.8)
+scale = Vector2(1.71875, 1.6375)
+sprite_frames = SubResource("SpriteFrames_betbo")
+animation = &"machine"
+frame_progress = 0.7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2(7.56218, -6.8294)
+scale = Vector2(1.87513, 1.56588)
+shape = SubResource("RectangleShape2D_l8n7r")
+
+[node name="UseArea" type="Area2D" parent="."]
+texture_filter = 1
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UseArea"]
+position = Vector2(7, -7)
+rotation = -0.00263442
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ty2j2")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = -11.0
+offset_top = -56.0
+offset_right = 29.0
+offset_bottom = -33.0
+rotation = -0.00049245
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
