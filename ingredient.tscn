@@ -1,8 +1,12 @@
-[gd_scene load_steps=41 format=3 uid="uid://dt7wai2rc6o6e"]
+[gd_scene load_steps=49 format=3 uid="uid://dt7wai2rc6o6e"]
 
 [ext_resource type="Script" path="res://Ingredient.gd" id="1_okdlo"]
 [ext_resource type="Texture2D" uid="uid://bmw40u13l6dwp" path="res://assets_temporaires/Items/Fruits/Apple.png" id="2_migk8"]
 [ext_resource type="Texture2D" uid="uid://d33vfdqi7jyur" path="res://assets_temporaires/Items/Fruits/Bananas.png" id="3_4qtkn"]
+[ext_resource type="Texture2D" uid="uid://dt35rkkbjyq6y" path="res://vrais assets/coal-1.png.png" id="4_0i72n"]
+[ext_resource type="Texture2D" uid="uid://btyqlid3mmqqf" path="res://vrais assets/noodle-1.png.png" id="5_ekno7"]
+[ext_resource type="Texture2D" uid="uid://b7a11ihhouwye" path="res://vrais assets/tomato-1.png.png" id="6_02sur"]
+[ext_resource type="Texture2D" uid="uid://bwl7ab0ti8t3l" path="res://vrais assets/zucchini.png" id="7_70286"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7m2h"]
 radius = 11.4018
@@ -143,6 +147,22 @@ region = Rect2(480, 0, 32, 32)
 atlas = ExtResource("3_4qtkn")
 region = Rect2(512, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_psyyl"]
+atlas = ExtResource("4_0i72n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jmvt"]
+atlas = ExtResource("5_ekno7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwl5w"]
+atlas = ExtResource("6_02sur")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3edo"]
+atlas = ExtResource("7_70286")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_p6m21"]
 animations = [{
 "frames": [{
@@ -256,6 +276,38 @@ animations = [{
 "loop": true,
 "name": &"banana",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psyyl")
+}],
+"loop": true,
+"name": &"coal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jmvt")
+}],
+"loop": true,
+"name": &"noodles",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwl5w")
+}],
+"loop": true,
+"name": &"tomato",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3edo")
+}],
+"loop": true,
+"name": &"zucchini",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fe26t"]
@@ -271,9 +323,9 @@ shape = SubResource("CircleShape2D_q7m2h")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
+scale = Vector2(0.975, 0.975)
 sprite_frames = SubResource("SpriteFrames_p6m21")
-animation = &"banana"
+animation = &"noodles"
 
 [node name="PickArea" type="Area2D" parent="."]
 collision_layer = 2
