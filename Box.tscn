@@ -7,6 +7,7 @@
 size = Vector2(43.5, 41.5)
 
 [node name="Box" type="RigidBody2D"]
+freeze = true
 script = ExtResource("1_ey72t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
