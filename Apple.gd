@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name LightProp
 
 var picked = false
 var player = null
@@ -11,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if picked == true:
 		self.position = player.get_node("PickUpMarker").global_position
 	elif just_dropped:
@@ -19,15 +20,15 @@ func _process(delta):
 			a = 1
 		else:
 			a = -1
-		self.linear_velocity = Vector2(0,0)
 		apply_impulse(Vector2(), Vector2(400 * a,-400))
+		self.linear_velocity = Vector2(0,0)
 		self.position[1] -= 15
 		self.position[0] -= 15 * a
 		just_dropped = false		
-		$CollisionShape2D.disabled = false
-		$PickArea/CollisionShape2D.disabled = false
+		#$CollisionShape2D.disabled = false
+		#$PickArea/CollisionShape2D.disabled = false
 		
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("interact"):
 		if picked:
 			# drop
@@ -38,12 +39,10 @@ func _input(event):
 			# pick
 			var bodies = $PickArea.get_overlapping_bodies()
 			for body in bodies:
-				print(body.name)
 				if body.name in ["Character1", "Character2"]:
-					print(body)
 					player = body
 			if player != null and player.can_pick:
 				picked = true
-				$CollisionShape2D.disabled = true
-				$PickArea/CollisionShape2D.disabled = true
+				#$CollisionShape2D.disabled = true
+				#$PickArea/CollisionShape2D.disabled = true
 				
