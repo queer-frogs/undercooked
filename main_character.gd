@@ -5,6 +5,10 @@ class_name PlatformerController2D
 signal jumped(is_ground_jump: bool)
 signal hit_ground()
 
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var can_pick = true 	# can the player pick and item ?
+
 
 # Set these to the name of your action (in the Input Map)
 ## Name of input action to move left.

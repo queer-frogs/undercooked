@@ -247,3 +247,7 @@ sprite_frames = SubResource("SpriteFrames_e8kbl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(176, 342)
 shape = SubResource("RectangleShape2D_wcmes")
+
+[node name="PickUpMarker" type="Marker2D" parent="."]
+position = Vector2(177, 311)
+rotation = -0.0156681
