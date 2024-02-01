@@ -23,7 +23,6 @@ func cool_down():
 		await get_tree().create_timer(2).timeout
 		var ingredient_position = self.position
 		ingredient_position[1] -= 50
-		ingredient_position[0] += 50
 		get_parent().spawn_ingredient(ingredient_type, ingredient_position, self)
 		cooling_down = false
 	
