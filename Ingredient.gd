@@ -25,6 +25,12 @@ func setup(type: String, init_position: Vector2, box: Box):
 	elif itemType == "coal":
 		$Sprite.play("coal")
 		chopResult = "coal"
+	elif itemType == "Eggplant":
+		$Sprite.play("eggplant")
+		chopResult = "choppedEggplant"
+	elif itemType == "Carrot":
+		$Sprite.play("carrot")
+		chopResult = "choppedCarrot"
 	else:
 		printerr("Error : the type provided is not supported.")
 	

@@ -536,17 +536,25 @@ shape = SubResource("RectangleShape2D_2tjrm")
 metadata/_edit_group_ = true
 
 [node name="Item" parent="." instance=ExtResource("6_rdx3k")]
-
 position = Vector2(256, 578)
-
-[node name="Box of Zucchini" parent="." instance=ExtResource("6_hyvq5")]
-position = Vector2(1054, 84)
 
 [node name="Box of Tomatoes" parent="." instance=ExtResource("6_hyvq5")]
 position = Vector2(465, 84)
 ingredient_type = "Tomato"
 
+[node name="Box of Zucchini" parent="." instance=ExtResource("6_hyvq5")]
+position = Vector2(1054, 84)
+
 [node name="Box of Noodles" parent="." instance=ExtResource("6_hyvq5")]
 position = Vector2(40, 353)
 ingredient_type = "Noodles"
 
+[node name="Box of Carrots" parent="." instance=ExtResource("6_hyvq5")]
+position = Vector2(727, 293)
+ingredient_type = "Carrot"
+
+[node name="Box of Eggplants" parent="." instance=ExtResource("6_hyvq5")]
+position = Vector2(1649, 443)
+ingredient_type = "Eggplant"
+
+[node name="Boxes" type="Node" parent="."]
