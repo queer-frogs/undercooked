@@ -56,3 +56,30 @@ func _input(_event):
 				just_picked = true
 			else:
 				playerPicker = null
+	
+	# Dash / throw item
+	if Input.is_action_just_pressed("dash_1"):
+		if picked == true:
+			if playerPicker.name == "Character1":
+				a = 1
+				if playerPicker.facing_left == true :
+					a= -1
+				picked = false
+				playerPicker = null
+				self.linear_velocity = Vector2(0,0)
+				apply_central_impulse(Vector2(1000*a,-600))
+				self.position[1] -= 15
+				self.position[0] -= 15 
+		
+	if Input.is_action_just_pressed("dash_2"):
+		if picked == true:
+			if playerPicker.name == "Character2":
+				a = 1
+				if playerPicker.facing_left == true :
+					a= -1
+				picked = false
+				playerPicker = null
+				self.linear_velocity = Vector2(0,0)
+				apply_central_impulse(Vector2(1000*a,-600))
+				self.position[1] -= 15
+				self.position[0] -= 15 

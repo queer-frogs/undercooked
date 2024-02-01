@@ -13,12 +13,27 @@ func setup(type: String, init_position: Vector2, box: Box):
 	originBox = box
 	dish = false
 	itemType = type
-	if itemType == "apple":
-		$Sprite.play("apple")
-		chopResult = "choppedApple"
-	elif itemType == "banana":
-		$Sprite.play("banana")
-		chopResult = "choppedBanana"
+	if itemType == "Zucchini":
+		$Sprite.play("zucchini")
+		chopResult = "choppedZucchini"
+	elif itemType == "Tomato":
+		$Sprite.play("tomato")
+		chopResult = "choppedTomato"
+	elif itemType == "Noodles":
+		$Sprite.play("noodles")
+		chopResult = "coal"
+	elif itemType == "coal":
+		$Sprite.play("coal")
+		chopResult = "coal"
+	elif itemType == "Eggplant":
+		$Sprite.play("eggplant")
+		chopResult = "choppedEggplant"
+	elif itemType == "Carrot":
+		$Sprite.play("carrot")
+		chopResult = "choppedCarrot"
+	elif itemType == "choppedCarrot":
+		$Sprite.play("choppedCarrot")
+		chopResult = "choppedCarrot"
 	else:
 		printerr("Error : the type provided is not supported.")
 	
