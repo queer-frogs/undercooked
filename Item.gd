@@ -6,6 +6,7 @@ var just_dropped : bool = false
 var playerPicker : CharacterBody2D = null
 var a  	# way the vector goes, 1 right or -1 left
 var dish : bool = true
+var just_picked : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,8 @@ func _process(_delta):
 	# Picking processing
 	if picked == true:
 		self.position = playerPicker.get_node("PickUpMarker").global_position
+		if just_picked == true:
+			just_picked = false
 	elif just_dropped:
 		if randi() % 2 == 0:
 			a = 1
@@ -44,5 +47,6 @@ func _input(_event):
 					playerPicker= body
 			if playerPicker != null and playerPicker.can_pick:
 				picked = true
+				just_picked = true
 			else:
 				playerPicker = null
