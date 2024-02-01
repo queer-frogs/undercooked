@@ -392,7 +392,7 @@ animations = [{
 radius = 21.0
 
 [node name="Ingredient" type="RigidBody2D"]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_okdlo")
 

@@ -17,9 +17,11 @@ func _ready():
 func _process(_delta):
 	# Picking processing
 	if picked == true:
+
 		self.position = playerPicker.get_node("PickUpMarker").global_position
 		if just_picked == true:
 			just_picked = false
+
 	elif just_dropped:
 		if randi() % 2 == 0:
 			a = 1
@@ -30,6 +32,7 @@ func _process(_delta):
 		self.position[1] -= 15
 		self.position[0] -= 15 * a
 		just_dropped = false		
+
 		
 func _input(_event):
 	# Interaction processing
@@ -37,6 +40,8 @@ func _input(_event):
 		if picked:
 			# drop
 			picked = false
+
+			playerPicker.can_pick = true
 			playerPicker = null
 			just_dropped = true
 		else:
@@ -47,6 +52,7 @@ func _input(_event):
 					playerPicker= body
 			if playerPicker != null and playerPicker.can_pick:
 				picked = true
+				playerPicker.can_pick = false
 				just_picked = true
 			else:
 				playerPicker = null
