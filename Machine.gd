@@ -3,8 +3,8 @@ class_name Machine
 
 var ellapsedtime : float = 0
 var timer_on = false
+@export var type : String
 @export var necessaryTime: int
-var result : String
 var used: bool = false
 var player : CharacterBody2D = null
 var object : RigidBody2D = null
@@ -18,21 +18,18 @@ func start_use():
 func stop_use():
 	timer_on = false
 	if necessaryTime <= ellapsedtime and ellapsedtime <= (necessaryTime + 5) :
-		result = "cooked"
 		$TimerLabel.text = ""
-		#object.setup(, object.global_position, object.box)
-		print("perfect")
-		
-	elif ellapsedtime < necessaryTime :
-		result = "undercooked"
-		object.visible = true
-		print("try again")
+		ellapsedtime = 0
+		object.setup("banana", object.global_position, object.originBox)
 		
 	elif ellapsedtime > (necessaryTime + 5) :
-		result = "overcooked"
 		$TimerLabel.text = ""
+		ellapsedtime = 0
 		#object.setup(, object.global_position, object.box)
-		print("trash")
+		
+	object.visible = true
+	var white = Color(1.0,1.0,1.0,1.0)
+	$TimerLabel.set("theme_override_colors/font_color",white)
 		
 
 

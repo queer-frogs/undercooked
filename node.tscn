@@ -512,3 +512,8 @@ input_jump = "jump_2"
 
 [node name="Box2" parent="." instance=ExtResource("6_hyvq5")]
 position = Vector2(288, 585)
+
+[node name="ChoppingBoard" parent="." instance=ExtResource("8_awvib")]
+position = Vector2(205, 126)
+type = "chop"
+necessaryTime = 5
