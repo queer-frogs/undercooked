@@ -1,9 +1,12 @@
 extends RigidBody2D
 
-var picked = false
-var player = null
-var just_dropped = false
-var a = 1 	# way the vector goes, 1 or -1
+var picked : bool = false
+var just_dropped : bool = false
+var player : CharacterBody2D = null
+var a  	# way the vector goes, 1 right or -1 left
+
+func _init():
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
