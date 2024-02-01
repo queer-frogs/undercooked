@@ -5,7 +5,6 @@ class_name PlatformerController2D
 signal jumped(is_ground_jump: bool)
 signal hit_ground()
 
-
 @export var can_pick = true 	# can the player pick and item ?
 
 
