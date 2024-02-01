@@ -177,9 +177,9 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("4_0i72n")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nq8vv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rv0v"]
 atlas = ExtResource("6_ilhjv")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7jmvt"]
 atlas = ExtResource("5_ekno7")
@@ -357,7 +357,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nq8vv")
+"texture": SubResource("AtlasTexture_4rv0v")
 }],
 "loop": true,
 "name": &"eggplant",
@@ -403,7 +403,7 @@ shape = SubResource("CircleShape2D_q7m2h")
 texture_filter = 1
 scale = Vector2(0.975, 0.975)
 sprite_frames = SubResource("SpriteFrames_p6m21")
-animation = &"choppedTomato"
+animation = &"eggplant"
 
 [node name="PickArea" type="Area2D" parent="."]
 collision_layer = 2
