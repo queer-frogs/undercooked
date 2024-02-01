@@ -468,14 +468,15 @@ texture = ExtResource("2_rmpv8")
 6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_pw2rv"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_dbib4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hnrv"]
 size = Vector2(43.5, 40.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvl6y"]
-radius = 8.06226
+radius = 11.4018
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpolj"]
 atlas = ExtResource("4_45shc")
@@ -605,7 +606,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e0d4r"]
-radius = 10.0499
+radius = 21.0
 
 [node name="Node" type="Node"]
 metadata/_edit_horizontal_guides_ = [-55.0]
@@ -644,10 +645,11 @@ texture = ExtResource("4_ymlea")
 
 [node name="Apple" type="RigidBody2D" parent="."]
 position = Vector2(196, 563)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("6_5m86r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Apple"]
-visible = false
 shape = SubResource("CircleShape2D_lvl6y")
 
 [node name="sprite" type="AnimatedSprite2D" parent="Apple"]
@@ -658,6 +660,8 @@ animation = &"idle"
 frame_progress = 0.612328
 
 [node name="PickArea" type="Area2D" parent="Apple"]
+collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Apple/PickArea"]
 rotation = -0.0236673
