@@ -27,7 +27,7 @@ func start_use():
 func stop_use():
 	timer_on = false
 	
-	if (necessaryTime <= ellapsedtime and ellapsedtime <= (necessaryTime + 5)):
+	if necessaryTime <= ellapsedtime and ellapsedtime <= necessaryTime + 5 or ellapsedtime > necessaryTime and not over :
 
 		if type == "chop":
 			object.setup(object.chopResult, object.global_position, object.originBox)
@@ -38,7 +38,7 @@ func stop_use():
 		elif type == "wok":
 			object.setup(object.wokResult, object.global_position, object.originBox)
 	
-	if ellapsedtime > (necessaryTime + 5):
+	elif ellapsedtime > (necessaryTime + 5):
 			object.setup("coal", object.global_position, object.originBox)
 		
 	ellapsedtime = 0
