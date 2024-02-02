@@ -1,7 +1,8 @@
 extends Node
 
 var repas_faits = 0
-var dishes_to_make = { "Tomato" : 1 , "Eggplant" : 0, "Zucchini" : 0} 
+var dishes_to_make = { "Carrot-Tomato-Zucchini Salad" : 2 , "Tomato-Carrot Noodles" : 3, "Eggplant-Zucchini Noodles" :2, "Tomato-Zucchini Noodles" : 1} 
+
 @onready var label = $"../conveyer_belt/UI/Panel/Label"
 var victory: bool = false
 signal victory_signal
@@ -12,19 +13,18 @@ func add_dish(name):
 		dishes_to_make[name] -= 1
 		var text=""
 		for plate in dishes_to_make:
-			text+= str("nombre de " , plate , " à faire : " , dishes_to_make[plate], "    |   ")
+			text+= str( "Number of", plate , " to do : " , dishes_to_make[plate], "    |   ")
 		label.text=text
-		print("nombre de " , name , " à faire : " , dishes_to_make[name])
 		repas_faits +=1
-		print("repas faits : " , repas_faits)
 		check_win_condition()
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var text = ""
 	for plate in dishes_to_make:
-		text += str("nombre de " , plate , " à faire : " , dishes_to_make[plate], "    |   ")
+		text+= str("Number of " , plate , " to do : " , dishes_to_make[plate], "    |   ")
 		label.text=text
 
 

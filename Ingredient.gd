@@ -74,7 +74,7 @@ func setup(type: String, init_position: Vector2, box: Box):
 	elif itemType == "cookedEggplant":
 		$Sprite.play("cookedEggplant")
 		
-	elif itemType == "moussaka":
+	elif itemType == "Moussaka":
 		$Sprite.play("Moussaka")
 		dish = true
 		boilResult = "MousseMacabre"
@@ -82,16 +82,16 @@ func setup(type: String, init_position: Vector2, box: Box):
 	elif itemType == "MousseMacabre":
 		dish = true
 		$Sprite.play("MousseMacabre")
-	elif itemType == "noodles1":
+	elif itemType == "Tomato-Carrot Noodles1":
 		dish = true
 		$Sprite.play("noodles1")
-	elif itemType == "noodles2":
+	elif itemType == "Eggplant-Zucchini Noodles":
 		dish = true
 		$Sprite.play("noodles2")
-	elif itemType == "noodles3":
+	elif itemType == "Tomato-Zucchini Noodles":
 		dish = true
 		$Sprite.play("noodles3")
-	elif itemType == "salad":
+	elif itemType == "Carrot-Tomato-Zucchini Salad":
 		dish = true
 		$Sprite.play("salad")
 		
