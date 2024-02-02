@@ -1,16 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://rnl0nqct56jw"]
+[gd_scene load_steps=9 format=3 uid="uid://dqscdpicqbu3w"]
 
-[ext_resource type="Script" path="res://Machine.gd" id="1_cnjhw"]
-[ext_resource type="Texture2D" uid="uid://bt2bne1eew7t2" path="res://assets_temporaires/Traps/Fire/On (16x32).png" id="2_i1b3t"]
-[ext_resource type="Texture2D" uid="uid://dww85f70bkko2" path="res://vrais assets/pot uncooked-1.png.png" id="2_lb4yq"]
-[ext_resource type="Texture2D" uid="uid://cclmwcqwue4" path="res://vrais assets/cutting table unused-1.png.png" id="3_0mxg4"]
-[ext_resource type="Texture2D" uid="uid://xdrncb46t7ev" path="res://vrais assets/empty pan-1.png.png" id="5_yr88j"]
+[ext_resource type="Script" path="res://Plating.gd" id="1_ggv8k"]
+[ext_resource type="Texture2D" uid="uid://dww85f70bkko2" path="res://vrais assets/pot uncooked-1.png.png" id="2_nekwe"]
+[ext_resource type="Texture2D" uid="uid://cclmwcqwue4" path="res://vrais assets/cutting table unused-1.png.png" id="3_ivsyb"]
+[ext_resource type="Texture2D" uid="uid://bt2bne1eew7t2" path="res://assets_temporaires/Traps/Fire/On (16x32).png" id="4_tpnmr"]
+[ext_resource type="Texture2D" uid="uid://xdrncb46t7ev" path="res://vrais assets/empty pan-1.png.png" id="5_vpmqe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_betbo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lb4yq")
+"texture": ExtResource("2_nekwe")
 }],
 "loop": true,
 "name": &"boil",
@@ -18,7 +18,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_0mxg4")
+"texture": ExtResource("3_ivsyb")
 }],
 "loop": true,
 "name": &"chop",
@@ -26,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_i1b3t")
+"texture": ExtResource("4_tpnmr")
 }],
 "loop": true,
 "name": &"machine",
@@ -34,7 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_yr88j")
+"texture": ExtResource("5_vpmqe")
 }],
 "loop": true,
 "name": &"wok",
@@ -42,27 +42,27 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8n7r"]
-size = Vector2(29.3313, 33.7379)
+size = Vector2(23.9983, 17.8813)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty2j2"]
-size = Vector2(106, 74.0946)
+size = Vector2(74.8285, 65.1974)
 
-[node name="Machine" type="RigidBody2D"]
+[node name="Plating" type="RigidBody2D"]
 position = Vector2(58, 42)
 collision_layer = 8
 collision_mask = 10
-script = ExtResource("1_cnjhw")
+script = ExtResource("1_ggv8k")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-9, -9)
 scale = Vector2(0.851562, 0.74375)
 sprite_frames = SubResource("SpriteFrames_betbo")
-animation = &"boil"
+animation = &"machine"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
-position = Vector2(-9.5, -7.5)
+position = Vector2(-9.5, -8)
 scale = Vector2(1.87513, 1.56588)
 shape = SubResource("RectangleShape2D_l8n7r")
 
@@ -72,7 +72,7 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UseArea"]
-position = Vector2(-8.92084, -11.9528)
+position = Vector2(-10.5, -7.5)
 rotation = -0.00263442
 shape = SubResource("RectangleShape2D_ty2j2")
 

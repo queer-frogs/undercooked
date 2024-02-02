@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://byx12llv7aqv1"]
+[gd_scene load_steps=15 format=3 uid="uid://byx12llv7aqv1"]
 
 [ext_resource type="Texture2D" uid="uid://ct4g2y2krmr1c" path="res://Blue.png" id="1_5xulf"]
 [ext_resource type="Script" path="res://node.gd" id="1_ku0r5"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://clue6jsscl3fd" path="res://Box.tscn" id="6_hyvq5"]
 [ext_resource type="Script" path="res://Moving Platform.gd" id="8_5e3ai"]
 [ext_resource type="PackedScene" uid="uid://rnl0nqct56jw" path="res://Machine.tscn" id="8_awvib"]
+[ext_resource type="PackedScene" path="res://Plating.tscn" id="9_f1m3c"]
 [ext_resource type="Texture2D" uid="uid://br0dobf4euyag" path="res://Off.png" id="9_t5y06"]
+[ext_resource type="Script" path="res://Game_manager.gd" id="10_worv4"]
+[ext_resource type="PackedScene" path="res://conveyer_belt.tscn" id="11_28vo7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbib4"]
 texture = ExtResource("2_rmpv8")
@@ -518,18 +521,18 @@ shape = SubResource("RectangleShape2D_2tjrm")
 metadata/_edit_group_ = true
 
 [node name="ChoppingBoard" parent="." instance=ExtResource("8_awvib")]
-position = Vector2(239, 150)
+position = Vector2(692, 568)
 type = "chop"
 necessaryTime = 5
 
 [node name="Wok" parent="." instance=ExtResource("8_awvib")]
-position = Vector2(486, 450)
+position = Vector2(859, 564)
 type = "wok"
 necessaryTime = 6
 over = true
 
 [node name="Boil" parent="." instance=ExtResource("8_awvib")]
-position = Vector2(1065, 416)
+position = Vector2(1061, 408)
 type = "boil"
 necessaryTime = 4
 over = true
@@ -550,13 +553,41 @@ position = Vector2(727, 293)
 ingredient_type = "Carrot"
 
 [node name="Box of Eggplants" parent="." instance=ExtResource("6_hyvq5")]
-position = Vector2(284, 579)
+texture_filter = 1
+position = Vector2(477, 449)
 ingredient_type = "Eggplant"
 
 [node name="Boxes" type="Node" parent="."]
 
 [node name="Character1" parent="." instance=ExtResource("3_2jxds")]
 position = Vector2(-29, 7)
+
+[node name="Game_manager" type="Node" parent="."]
+script = ExtResource("10_worv4")
+
+[node name="conveyer_belt" parent="." instance=ExtResource("11_28vo7")]
+position = Vector2(245, 179)
+
+[node name="UI" type="CanvasLayer" parent="conveyer_belt"]
+
+[node name="Panel" type="Panel" parent="conveyer_belt/UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -61.0
+offset_right = 1143.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="conveyer_belt/UI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "woooooohoo"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Character2" parent="." instance=ExtResource("3_2jxds")]
 position = Vector2(496, -169)
@@ -567,3 +598,6 @@ input_up = "up_2"
 input_down = "down_2"
 input_dash = "dash_2"
 interact = "interact_2"
+
+[node name="Plating" parent="." instance=ExtResource("9_f1m3c")]
+position = Vector2(271, 584)

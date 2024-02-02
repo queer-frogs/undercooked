@@ -1,18 +1,8 @@
-[gd_scene load_steps=61 format=3 uid="uid://dt7wai2rc6o6e"]
+[gd_scene load_steps=41 format=3 uid="uid://dt7wai2rc6o6e"]
 
 [ext_resource type="Script" path="res://Ingredient.gd" id="1_okdlo"]
 [ext_resource type="Texture2D" uid="uid://bmw40u13l6dwp" path="res://assets_temporaires/Items/Fruits/Apple.png" id="2_migk8"]
 [ext_resource type="Texture2D" uid="uid://d33vfdqi7jyur" path="res://assets_temporaires/Items/Fruits/Bananas.png" id="3_4qtkn"]
-[ext_resource type="Texture2D" uid="uid://dt35rkkbjyq6y" path="res://vrais assets/coal-1.png.png" id="4_0i72n"]
-[ext_resource type="Texture2D" uid="uid://cm44blmaultpb" path="res://vrais assets/carott.png.png" id="4_by7s0"]
-[ext_resource type="Texture2D" uid="uid://dfuhwhlab3ml7" path="res://vrais assets/zuchini chopped-1.png(1).png" id="5_a0p4m"]
-[ext_resource type="Texture2D" uid="uid://btyqlid3mmqqf" path="res://vrais assets/noodle-1.png.png" id="5_ekno7"]
-[ext_resource type="Texture2D" uid="uid://b7a11ihhouwye" path="res://vrais assets/tomato-1.png.png" id="6_02sur"]
-[ext_resource type="Texture2D" uid="uid://chcj1vjvdarsq" path="res://vrais assets/eggplant chopped-1.png(2).png" id="6_66822"]
-[ext_resource type="Texture2D" uid="uid://cwabsu7usk5ps" path="res://vrais assets/eggplant.png" id="6_ilhjv"]
-[ext_resource type="Texture2D" uid="uid://bwl7ab0ti8t3l" path="res://vrais assets/zucchini.png" id="7_70286"]
-[ext_resource type="Texture2D" uid="uid://b7esfauiojgqx" path="res://vrais assets/tomates chopped-1.png.png" id="7_ytp0r"]
-[ext_resource type="Texture2D" uid="uid://qhxs264uaieo" path="res://vrais assets/zuchini chopped-1.png.png" id="8_7t1wi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7m2h"]
 radius = 11.4018
@@ -153,46 +143,6 @@ region = Rect2(480, 0, 32, 32)
 atlas = ExtResource("3_4qtkn")
 region = Rect2(512, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_10x1i"]
-atlas = ExtResource("4_by7s0")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ot74"]
-atlas = ExtResource("5_a0p4m")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gx7tf"]
-atlas = ExtResource("6_66822")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_go04f"]
-atlas = ExtResource("7_ytp0r")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2jji0"]
-atlas = ExtResource("8_7t1wi")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_psyyl"]
-atlas = ExtResource("4_0i72n")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4rv0v"]
-atlas = ExtResource("6_ilhjv")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jmvt"]
-atlas = ExtResource("5_ekno7")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wwl5w"]
-atlas = ExtResource("6_02sur")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q3edo"]
-atlas = ExtResource("7_70286")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_p6m21"]
 animations = [{
 "frames": [{
@@ -306,86 +256,6 @@ animations = [{
 "loop": true,
 "name": &"banana",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_10x1i")
-}],
-"loop": true,
-"name": &"carrot",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0ot74")
-}],
-"loop": true,
-"name": &"choppedCarrot",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gx7tf")
-}],
-"loop": true,
-"name": &"choppedEggplant",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_go04f")
-}],
-"loop": true,
-"name": &"choppedTomato",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2jji0")
-}],
-"loop": true,
-"name": &"choppedZucchini",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_psyyl")
-}],
-"loop": true,
-"name": &"coal",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4rv0v")
-}],
-"loop": true,
-"name": &"eggplant",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7jmvt")
-}],
-"loop": true,
-"name": &"noodles",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wwl5w")
-}],
-"loop": true,
-"name": &"tomato",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q3edo")
-}],
-"loop": true,
-"name": &"zucchini",
-"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fe26t"]
@@ -401,9 +271,9 @@ shape = SubResource("CircleShape2D_q7m2h")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.975, 0.975)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_p6m21")
-animation = &"choppedEggplant"
+animation = &"banana"
 
 [node name="PickArea" type="Area2D" parent="."]
 collision_layer = 2

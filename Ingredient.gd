@@ -13,9 +13,12 @@ func setup(type: String, init_position: Vector2, box: Box):
 	originBox = box
 	dish = false
 	itemType = type
+
 	wokResult = "coal"
 	boilResult = "coal"
 	chopResult = "coal"
+	
+	# Ingredients
 	if itemType == "Zucchini":
 		$Sprite.play("zucchini")
 		chopResult = "choppedZucchini"
@@ -33,19 +36,33 @@ func setup(type: String, init_position: Vector2, box: Box):
 	elif itemType == "Carrot":
 		$Sprite.play("carrot")
 		chopResult = "choppedCarrot"
+	elif itemType == "choppedTomato":
+		$Sprite.play("choppedTomato")
+		chopResult = "choppedTomato"
+		wokResult = "cookedTomato"
 	elif itemType == "choppedCarrot":
 		$Sprite.play("choppedCarrot")
-		wokResult = "cookededCarrots"
-		chopResult = "choppedCarrots"
+		chopResult = "choppedCarrot"
+		wokResult = "cookedCarrot"
 	elif itemType == "choppedEggplant":
 		$Sprite.play("choppedEggplant")
 		chopResult = "choppedEggplant"
 		wokResult = "cookedEggplant"
+
+	elif itemType == "choppedZucchini":
+		$Sprite.play("choppedZucchini")
+		chopResult = "choppedZucchini"
+		wokResult = "cookedZucchini"
+	# Dishes
+	elif itemType == "plate":
+		dish = true
+		$Sprite.play("apple")
+
 	else:
 		printerr("Error : the type provided is not supported.")
 	
 func _process(_delta):
-	if just_picked and not regenerated:
+	if originBox != null and just_picked and not regenerated:
 		originBox.cool_down()
 		regenerated = true
 	super._process(_delta)
