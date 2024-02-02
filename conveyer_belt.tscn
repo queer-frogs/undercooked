@@ -7,7 +7,7 @@
 size = Vector2(28, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qqrc"]
-size = Vector2(133, 87)
+size = Vector2(60, 44.5)
 
 [node name="conveyer_belt" type="RigidBody2D"]
 position = Vector2(246, 179)
@@ -30,5 +30,5 @@ position = Vector2(0, -1.52588e-05)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UseArea"]
-position = Vector2(-3.5, -33.5)
+position = Vector2(-7, -13.75)
 shape = SubResource("RectangleShape2D_6qqrc")

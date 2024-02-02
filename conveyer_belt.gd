@@ -40,8 +40,8 @@ func _input(_event):
 			print(area)
 			if area :
 				object = area[0].get_parent()
-				game_manager.add_repas()
-				print(object)
+				var name_of_the_object = object.itemType 
+				game_manager.add_repas(name_of_the_object)
 				object.delete()
 				player.can_pick = true
 

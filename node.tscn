@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://byx12llv7aqv1"]
+[gd_scene load_steps=14 format=3 uid="uid://byx12llv7aqv1"]
 
 [ext_resource type="Texture2D" uid="uid://ct4g2y2krmr1c" path="res://Blue.png" id="1_5xulf"]
 [ext_resource type="Script" path="res://node.gd" id="1_ku0r5"]
 [ext_resource type="Texture2D" uid="uid://v06exrj5qf7g" path="res://Terrain (16x16).png" id="2_rmpv8"]
 [ext_resource type="PackedScene" uid="uid://bpykeyknnfm0b" path="res://main_character.tscn" id="3_2jxds"]
 [ext_resource type="PackedScene" uid="uid://clue6jsscl3fd" path="res://Box.tscn" id="6_hyvq5"]
-[ext_resource type="PackedScene" uid="uid://boj27qlbd1g2l" path="res://Item.tscn" id="6_rdx3k"]
 [ext_resource type="Script" path="res://Moving Platform.gd" id="8_5e3ai"]
 [ext_resource type="PackedScene" uid="uid://rnl0nqct56jw" path="res://Machine.tscn" id="8_awvib"]
 [ext_resource type="Texture2D" uid="uid://br0dobf4euyag" path="res://Off.png" id="9_t5y06"]
@@ -542,9 +541,6 @@ texture = ExtResource("9_t5y06")
 position = Vector2(10.5, 16.5)
 shape = SubResource("RectangleShape2D_2tjrm")
 metadata/_edit_group_ = true
-
-[node name="Item" parent="." instance=ExtResource("6_rdx3k")]
-position = Vector2(256, 578)
 
 [node name="Box of Tomatoes" parent="." instance=ExtResource("6_hyvq5")]
 position = Vector2(465, 84)
