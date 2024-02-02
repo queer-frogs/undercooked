@@ -595,7 +595,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Character2" parent="." instance=ExtResource("3_2jxds")]
-position = Vector2(496, -169)
+position = Vector2(109, 227)
 input_left = "move_left_2"
 input_right = "move_right_2"
 input_jump = "jump_2"
@@ -603,9 +603,6 @@ input_up = "up_2"
 input_down = "down_2"
 input_dash = "dash_2"
 interact = "interact_2"
-
-[node name="Character3" parent="." instance=ExtResource("3_2jxds")]
-position = Vector2(393, -52)
 
 [node name="Plating" parent="." instance=ExtResource("9_f1m3c")]
 position = Vector2(669, 580)
