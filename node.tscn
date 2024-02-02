@@ -559,7 +559,7 @@ ingredient_type = "Carrot"
 
 [node name="Box of Eggplants" parent="." instance=ExtResource("6_hyvq5")]
 texture_filter = 1
-position = Vector2(1649, 443)
+position = Vector2(465, 452)
 ingredient_type = "Eggplant"
 
 [node name="Boxes" type="Node" parent="."]
@@ -569,3 +569,24 @@ script = ExtResource("10_worv4")
 
 [node name="conveyer_belt" parent="." instance=ExtResource("11_28vo7")]
 position = Vector2(245, 179)
+
+[node name="UI" type="CanvasLayer" parent="conveyer_belt"]
+
+[node name="Panel" type="Panel" parent="conveyer_belt/UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -61.0
+offset_right = 1143.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="conveyer_belt/UI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "woooooohoo"
+horizontal_alignment = 1
+vertical_alignment = 1
