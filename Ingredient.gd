@@ -16,21 +16,21 @@ func setup(type: String, init_position: Vector2, box: Box):
 	
 	# Ingredients
 	if itemType == "Zucchini":
-		$Sprite.play("zucchini")
+		$Sprite.play("Zucchini")
 		chopResult = "choppedZucchini"
 	elif itemType == "Tomato":
-		$Sprite.play("tomato")
+		$Sprite.play("Tomato")
 		chopResult = "choppedTomato"
 	elif itemType == "Noodles":
-		$Sprite.play("noodles")
+		$Sprite.play("Noodles")
 		boilResult = "boiledNoodles"
-	elif itemType == "coal":
+	elif itemType == "Coal":
 		$Sprite.play("coal")
 	elif itemType == "Eggplant":
-		$Sprite.play("eggplant")
+		$Sprite.play("Eggplant")
 		chopResult = "choppedEggplant"
 	elif itemType == "Carrot":
-		$Sprite.play("carrot")
+		$Sprite.play("Carrot")
 		chopResult = "choppedCarrot"
 	elif itemType == "choppedTomato":
 		$Sprite.play("choppedTomato")

@@ -1,11 +1,45 @@
-[gd_scene load_steps=41 format=3 uid="uid://dt7wai2rc6o6e"]
+[gd_scene load_steps=69 format=3 uid="uid://dt7wai2rc6o6e"]
 
 [ext_resource type="Script" path="res://Ingredient.gd" id="1_okdlo"]
+[ext_resource type="Texture2D" uid="uid://cm44blmaultpb" path="res://vrais assets/carott.png.png" id="2_lhjd3"]
 [ext_resource type="Texture2D" uid="uid://bmw40u13l6dwp" path="res://assets_temporaires/Items/Fruits/Apple.png" id="2_migk8"]
 [ext_resource type="Texture2D" uid="uid://d33vfdqi7jyur" path="res://assets_temporaires/Items/Fruits/Bananas.png" id="3_4qtkn"]
+[ext_resource type="Texture2D" uid="uid://cwabsu7usk5ps" path="res://vrais assets/eggplant.png" id="3_yeun6"]
+[ext_resource type="Texture2D" uid="uid://drsu36fod77m2" path="res://vrais assets/noodles.png" id="4_tmtrm"]
+[ext_resource type="Texture2D" uid="uid://b7a11ihhouwye" path="res://vrais assets/tomato-1.png.png" id="5_arc4r"]
+[ext_resource type="Texture2D" uid="uid://bwl7ab0ti8t3l" path="res://vrais assets/zucchini.png" id="6_vdhtt"]
+[ext_resource type="Texture2D" uid="uid://dfuhwhlab3ml7" path="res://vrais assets/zuchini chopped-1.png(1).png" id="9_wr77e"]
+[ext_resource type="Texture2D" uid="uid://chcj1vjvdarsq" path="res://vrais assets/eggplant chopped-1.png(2).png" id="10_1xrvf"]
+[ext_resource type="Texture2D" uid="uid://b7esfauiojgqx" path="res://vrais assets/tomates chopped-1.png.png" id="11_ehdpe"]
+[ext_resource type="Texture2D" uid="uid://qhxs264uaieo" path="res://vrais assets/zuchini chopped-1.png.png" id="12_fmom8"]
+[ext_resource type="Texture2D" uid="uid://dt35rkkbjyq6y" path="res://vrais assets/coal-1.png.png" id="13_tbntc"]
+[ext_resource type="Texture2D" uid="uid://6432dv6quqp6" path="res://vrais assets/cooked_carrot.png" id="14_kp7n3"]
+[ext_resource type="Texture2D" uid="uid://dfk5wxyb113bh" path="res://vrais assets/eggplant_cooked.png" id="15_lbetq"]
+[ext_resource type="Texture2D" uid="uid://ucacvj5m3ix5" path="res://vrais assets/tomato_cooked.png" id="16_72n6o"]
+[ext_resource type="Texture2D" uid="uid://cyy3ngc23836i" path="res://vrais assets/cooked_zucchini.png" id="17_yti6g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7m2h"]
 radius = 11.4018
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mvxu"]
+atlas = ExtResource("2_lhjd3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dessi"]
+atlas = ExtResource("3_yeun6")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maaj8"]
+atlas = ExtResource("4_tmtrm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gda8u"]
+atlas = ExtResource("5_arc4r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi2ty"]
+atlas = ExtResource("6_vdhtt")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpolj"]
 atlas = ExtResource("2_migk8")
@@ -143,8 +177,84 @@ region = Rect2(480, 0, 32, 32)
 atlas = ExtResource("3_4qtkn")
 region = Rect2(512, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkscp"]
+atlas = ExtResource("9_wr77e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsn60"]
+atlas = ExtResource("10_1xrvf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ipfn"]
+atlas = ExtResource("11_ehdpe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qh8h"]
+atlas = ExtResource("12_fmom8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jp0k"]
+atlas = ExtResource("13_tbntc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3idrq"]
+atlas = ExtResource("14_kp7n3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tofk2"]
+atlas = ExtResource("15_lbetq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3wfy"]
+atlas = ExtResource("16_72n6o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_582ep"]
+atlas = ExtResource("17_yti6g")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_p6m21"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mvxu")
+}],
+"loop": true,
+"name": &"Carrot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dessi")
+}],
+"loop": true,
+"name": &"Eggplant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maaj8")
+}],
+"loop": true,
+"name": &"Noodles",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gda8u")
+}],
+"loop": true,
+"name": &"Tomato",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oi2ty")
+}],
+"loop": true,
+"name": &"Zucchini",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mpolj")
@@ -256,6 +366,78 @@ animations = [{
 "loop": true,
 "name": &"banana",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkscp")
+}],
+"loop": true,
+"name": &"choppedCarrot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsn60")
+}],
+"loop": true,
+"name": &"choppedEggplant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ipfn")
+}],
+"loop": true,
+"name": &"choppedTomato",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qh8h")
+}],
+"loop": true,
+"name": &"choppedZucchini",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jp0k")
+}],
+"loop": true,
+"name": &"coal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3idrq")
+}],
+"loop": true,
+"name": &"cookedCarrot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tofk2")
+}],
+"loop": true,
+"name": &"cookedEggplant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3wfy")
+}],
+"loop": true,
+"name": &"cookedTomato",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_582ep")
+}],
+"loop": true,
+"name": &"cookedZucchini",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fe26t"]
@@ -273,7 +455,7 @@ shape = SubResource("CircleShape2D_q7m2h")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_p6m21")
-animation = &"banana"
+animation = &"cookedEggplant"
 
 [node name="PickArea" type="Area2D" parent="."]
 collision_layer = 2
