@@ -1,4 +1,5 @@
-[gd_scene load_steps=69 format=3 uid="uid://dt7wai2rc6o6e"]
+[gd_scene load_steps=41 format=3 uid="uid://dt7wai2rc6o6e"]
+
 
 [ext_resource type="Script" path="res://Ingredient.gd" id="1_okdlo"]
 [ext_resource type="Texture2D" uid="uid://cm44blmaultpb" path="res://vrais assets/carott.png.png" id="2_lhjd3"]
@@ -176,6 +177,7 @@ region = Rect2(480, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6om1c"]
 atlas = ExtResource("3_4qtkn")
 region = Rect2(512, 0, 32, 32)
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mkscp"]
 atlas = ExtResource("9_wr77e")
@@ -438,6 +440,7 @@ animations = [{
 "loop": true,
 "name": &"cookedZucchini",
 "speed": 5.0
+
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fe26t"]
@@ -455,7 +458,9 @@ shape = SubResource("CircleShape2D_q7m2h")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_p6m21")
+
 animation = &"cookedEggplant"
+
 
 [node name="PickArea" type="Area2D" parent="."]
 collision_layer = 2

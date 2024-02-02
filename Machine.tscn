@@ -45,7 +45,7 @@ animations = [{
 size = Vector2(29.3313, 33.7379)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty2j2"]
-size = Vector2(74.8285, 65.1974)
+size = Vector2(106, 74.0946)
 
 [node name="Machine" type="RigidBody2D"]
 position = Vector2(58, 42)
@@ -58,7 +58,7 @@ texture_filter = 1
 position = Vector2(-9, -9)
 scale = Vector2(0.851562, 0.74375)
 sprite_frames = SubResource("SpriteFrames_betbo")
-animation = &"machine"
+animation = &"boil"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
@@ -72,7 +72,7 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UseArea"]
-position = Vector2(-10.5, -7.5)
+position = Vector2(-8.92084, -11.9528)
 rotation = -0.00263442
 shape = SubResource("RectangleShape2D_ty2j2")
 

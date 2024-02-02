@@ -14,36 +14,43 @@ var object : RigidBody2D = null
 
 func _init():
 	pass
-		
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
-
-
 func _input(_event):
-	if Input.is_action_just_pressed("use"):
+	player = null
+	if Input.is_action_just_pressed("interact_1"):
 		var bodies = use_area.get_overlapping_bodies()
-		print(bodies)
 		for body in bodies:
-			if body.name in ["Character1", "Character2"]:
+			if body.name == "Character1":
 				player = body
-				print(player)
-		if player != null and not player.can_pick:
+		if player != null :
 			var area = use_area.get_overlapping_areas()
-			print(area)
 			if area :
 				object = area[0].get_parent()
-				var name_of_the_object = object.itemType 
-				game_manager.add_repas(name_of_the_object)
-				object.delete()
-				player.can_pick = true
+				if object.just_dropped == true :
+					var name_of_the_object = object.itemType 
+					game_manager.add_repas(name_of_the_object)
+					object.delete()
 
 
+	if Input.is_action_just_pressed("interact_2"):
+		var bodies = use_area.get_overlapping_bodies()
+		for body in bodies:
+			if body.name == "Character2":
+				player = body
+		if player != null :
+			var area = use_area.get_overlapping_areas()
+			if area :
+				object = area[0].get_parent()
+				if object.just_dropped == true :
+					var name_of_the_object = object.itemType 
+					game_manager.add_repas(name_of_the_object)
+					object.delete()
 

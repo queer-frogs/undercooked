@@ -13,6 +13,10 @@ func setup(type: String, init_position: Vector2, box: Box):
 	originBox = box
 	dish = false
 	itemType = type
+
+	wokResult = "coal"
+	boilResult = "coal"
+	chopResult = "coal"
 	
 	# Ingredients
 	if itemType == "Zucchini":
@@ -44,13 +48,11 @@ func setup(type: String, init_position: Vector2, box: Box):
 		$Sprite.play("choppedEggplant")
 		chopResult = "choppedEggplant"
 		wokResult = "cookedEggplant"
+
 	elif itemType == "choppedZucchini":
 		$Sprite.play("choppedZucchini")
 		chopResult = "choppedZucchini"
 		wokResult = "cookedZucchini"
-	elif itemType == "choppedEggplant":
-		$Sprite.play("choppedEggplant")
-		wokResult = "cookedEggplant"
 	# Dishes
 	elif itemType == "plate":
 		dish = true

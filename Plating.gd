@@ -24,10 +24,25 @@ func _process(delta):
 	pass
 
 func _input(_event):
-	if Input.is_action_just_pressed("use"):
+	if Input.is_action_just_pressed("interact_1"):
 		var bodies = $UseArea.get_overlapping_bodies()
 		for body in bodies:
-			if body.name in ["Character1", "Character2"]:
+			if body.name == "Character1":
+				playerUser = body
+		if playerUser != null and not playerUser.can_pick:
+			var area = $UseArea.get_overlapping_areas()
+			if area :
+				lastIngredient = area[0].get_parent()
+				ingredient_types.append(lastIngredient.itemType)
+				lastIngredient.queue_free()
+				playerUser.can_pick = true
+				used_slots += 1
+			if used_slots == capacity:
+				plating()
+	if Input.is_action_just_pressed("interact_2"):
+		var bodies = $UseArea.get_overlapping_bodies()
+		for body in bodies:
+			if body.name == "Character2":
 				playerUser = body
 		if playerUser != null and not playerUser.can_pick:
 			var area = $UseArea.get_overlapping_areas()

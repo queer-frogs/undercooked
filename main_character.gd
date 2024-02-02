@@ -22,6 +22,8 @@ signal hit_ground()
 
 @export var input_dash : String = "dash_1"
 
+@export var interact : String = "interact_1"
+
 @onready var sprite_2d = $Sprite2D
 
 const DEFAULT_MAX_JUMP_HEIGHT = 110
