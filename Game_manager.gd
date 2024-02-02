@@ -28,9 +28,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed('reset'):
+			get_tree().reload_current_scene()
 	victory = 1
 	for plate in dishes_to_make:
 		if dishes_to_make[plate] != 0 :
 			victory = 0
 	if victory == 1 :
 		print("victoire")
+		text = str(" Bravo d'avoir fini le jeu, pour réesayer en moins longtemps appuie sur p")
+		label.text=text
+
+	
