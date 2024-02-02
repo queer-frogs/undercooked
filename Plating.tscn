@@ -49,7 +49,7 @@ animations = [{
 size = Vector2(23.9983, 17.8813)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty2j2"]
-size = Vector2(74.8285, 65.1974)
+size = Vector2(84.0195, 92.0353)
 
 [node name="Plating" type="RigidBody2D"]
 position = Vector2(58, 42)
@@ -77,7 +77,7 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UseArea"]
-position = Vector2(-10.5, -7.5)
+position = Vector2(-10.9216, -20.9851)
 rotation = -0.00263442
 shape = SubResource("RectangleShape2D_ty2j2")
 
