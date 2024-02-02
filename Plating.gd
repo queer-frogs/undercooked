@@ -31,11 +31,12 @@ func _input(_event):
 				playerUser = body
 		if playerUser != null and not playerUser.can_pick:
 			var area = $UseArea.get_overlapping_areas()
-			lastIngredient = area[0].get_parent()
-			ingredient_types.append(lastIngredient.itemType)
-			lastIngredient.queue_free()
-			playerUser.can_pick = true
-			used_slots += 1
+			if area :
+				lastIngredient = area[0].get_parent()
+				ingredient_types.append(lastIngredient.itemType)
+				lastIngredient.queue_free()
+				playerUser.can_pick = true
+				used_slots += 1
 			if used_slots == capacity:
 				plating()
 
