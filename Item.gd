@@ -62,7 +62,6 @@ func _input(_event):
 			if playerPicker.name == "Character2":
 				# drop
 				picked = false
-
 				playerPicker.can_pick = true
 				playerPicker = null
 				just_dropped = true
