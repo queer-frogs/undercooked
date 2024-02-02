@@ -710,6 +710,10 @@ input_up = "up_2"
 input_down = "down_2"
 input_dash = "dash_2"
 interact = "interact_2"
+sprite_idle = "default_2"
+sprite_jump = "jump_2"
+sprite_run = "run_2"
+sprite_wall_jump = "wall_jump_2"
 
 [node name="Plating" parent="." instance=ExtResource("9_f1m3c")]
 position = Vector2(271, 584)

@@ -24,6 +24,11 @@ signal hit_ground()
 
 @export var interact : String = "interact_1"
 
+@export var sprite_idle : String = "default"
+@export var sprite_jump : String = "jump"
+@export var sprite_run : String = "run"
+@export var sprite_wall_jump : String = "wall_jump"
+
 @onready var sprite_2d = $Sprite2D
 
 const DEFAULT_MAX_JUMP_HEIGHT = 110
@@ -172,18 +177,17 @@ func _input(_event):
 		start_jump_buffer_timer()
 		if (not can_hold_jump and can_ground_jump()) or can_double_jump() or can_wall_jump():
 			jump()
-			sprite_2d.animation="jump"
+			sprite_2d.animation = sprite_jump
 		
 	if Input.is_action_just_released(input_jump):
 		holding_jump = false
 
 
 func _physics_process(delta):
-	sprite_2d.animation="default"
 	if velocity.x > 1 || velocity.x < -1 :
-		sprite_2d.animation="run"
+		sprite_2d.animation= sprite_run
 	else :
-		sprite_2d.animation="default"
+		sprite_2d.animation= sprite_idle
 	if is_coyote_timer_running() or current_jump_type == JumpType.NONE:
 		jumps_left = max_jump_amount
 		number_of_dash = max_dash_amount
@@ -209,12 +213,12 @@ func _physics_process(delta):
 		
 		if can_ground_jump() and can_hold_jump:
 			jump()
-			sprite_2d.animation="jump"
+			sprite_2d.animation= sprite_jump
 	# Cannot do this in _input because it needs to be checked every frame
 	if Input.is_action_pressed(input_jump):
 		if can_ground_jump() and can_hold_jump:
 			jump()
-			sprite_2d.animation="jump"
+			sprite_2d.animation=sprite_jump
 	
 	var gravity = apply_gravity_multipliers_to(default_gravity)
 	acc.y = gravity
@@ -330,7 +334,7 @@ func wall_jump():
 		# If your first jump is used in the air, an additional jump will be taken away.
 		jumps_left -= 1
 		
-	sprite_2d.animation="wall_jump"
+	sprite_2d.animation = sprite_wall_jump
 	velocity.y = -double_jump_velocity
 	if facing_left:
 		velocity.x = max_acceleration*0.3 
