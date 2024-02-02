@@ -26,9 +26,8 @@ func start_use():
 	
 func stop_use():
 	timer_on = false
-	ellapsedtime = 0
-	$TimerLabel.text = ""
-	if necessaryTime <= ellapsedtime and ellapsedtime <= (necessaryTime + 5)  or ellapsedtime > (necessaryTime + 5):
+	
+	if (necessaryTime <= ellapsedtime and ellapsedtime <= (necessaryTime + 5)):
 
 		if type == "chop":
 			object.setup(object.chopResult, object.global_position, object.originBox)
@@ -38,7 +37,12 @@ func stop_use():
 		
 		elif type == "wok":
 			object.setup(object.wokResult, object.global_position, object.originBox)
+	
+	if ellapsedtime > (necessaryTime + 5):
+			object.setup("coal", object.global_position, object.originBox)
 		
+	ellapsedtime = 0
+	$TimerLabel.text = ""
 	object.visible = true
 	var white = Color(1.0,1.0,1.0,1.0)
 	$TimerLabel.set("theme_override_colors/font_color",white)
