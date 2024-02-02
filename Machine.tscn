@@ -53,7 +53,7 @@ collision_layer = 8
 collision_mask = 10
 script = ExtResource("1_cnjhw")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-9, -9)
 scale = Vector2(0.851562, 0.74375)

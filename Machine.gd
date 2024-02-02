@@ -14,11 +14,11 @@ func _init():
 	
 func setup():
 	if type == "chop":
-		$AnimatedSprite2D.play("chop")
+		$Sprite.play("chop")
 	elif type == "wok":
-		$AnimatedSprite2D.play("wok")
+		$Sprite.play("wok")
 	elif type == "boil":
-		$AnimatedSprite2D.play("boil")
+		$Sprite.play("boil")
 
 func start_use():
 	timer_on = true
@@ -29,13 +29,13 @@ func stop_use():
 		$TimerLabel.text = ""
 		ellapsedtime = 0
 		
-		if object.itemType == "chop":
+		if type == "chop":
 			object.setup(object.chopResult, object.global_position, object.originBox)
 		
-		elif object.itemType == "boil":
+		elif type == "boil":
 			object.setup(object.boilResult, object.global_position, object.originBox)
 		
-		elif object.itemType == "cook":
+		elif type == "cook":
 			object.setup(object.cookResult, object.global_position, object.originBox)
 		
 		
@@ -86,7 +86,6 @@ func _input(_event):
 				used = true
 				var area = $UseArea.get_overlapping_areas()
 				object = area[0].get_parent()
-				print(object)
 				object.visible = false
 				start_use()
 
