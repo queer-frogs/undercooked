@@ -526,6 +526,7 @@ necessaryTime = 5
 position = Vector2(486, 450)
 type = "wok"
 necessaryTime = 6
+over = true
 
 [node name="Box of Tomatoes" parent="." instance=ExtResource("6_hyvq5")]
 position = Vector2(465, 84)

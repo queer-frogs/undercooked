@@ -5,6 +5,7 @@ var ellapsedtime : float = 0
 var timer_on = false
 @export var type : String
 @export var necessaryTime: int
+@export var over : bool
 var used: bool = false
 var player : CharacterBody2D = null
 var object : RigidBody2D = null
@@ -35,14 +36,20 @@ func stop_use():
 		elif type == "boil":
 			object.setup(object.boilResult, object.global_position, object.originBox)
 		
-		elif type == "cook":
-			object.setup(object.cookResult, object.global_position, object.originBox)
-		
+		elif type == "wok":
+			object.setup(object.wokResult, object.global_position, object.originBox)
 		
 	elif ellapsedtime > (necessaryTime + 5) :
 		$TimerLabel.text = ""
 		ellapsedtime = 0
-		object.setup("coal", object.global_position, object.originBox)
+		if type == "chop":
+			object.setup(object.chopResult, object.global_position, object.originBox)
+		
+		elif type == "boil":
+			object.setup(object.boilResult, object.global_position, object.originBox)
+		
+		elif type == "wok":
+			object.setup(object.wokResult, object.global_position, object.originBox)
 		
 	object.visible = true
 	var white = Color(1.0,1.0,1.0,1.0)
@@ -61,14 +68,14 @@ func _process(_delta):
 		ellapsedtime += _delta
 		var text = str(snapped(ellapsedtime, 1))
 		$TimerLabel.text = text
-		
-		if necessaryTime <= ellapsedtime and ellapsedtime <= necessaryTime + 5 :
-			var green = Color(0.0,1.0,0.0,1.0)
-			$TimerLabel.set("theme_override_colors/font_color",green)
 			
 		if ellapsedtime > necessaryTime + 5 :
 			var red = Color(1.0,0.0,0.0,1.0)
 			$TimerLabel.set("theme_override_colors/font_color",red)
+			
+		if necessaryTime <= ellapsedtime and ellapsedtime <= necessaryTime + 5 or ellapsedtime > necessaryTime and not over :
+			var green = Color(0.0,1.0,0.0,1.0)
+			$TimerLabel.set("theme_override_colors/font_color",green)
 
 
 
