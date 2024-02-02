@@ -111,7 +111,7 @@ var double_jump_velocity : float
 # Multiplies the gravity by this when we release jump
 var release_gravity_multiplier : float
 
-var facing_left = false
+var facing_left = true
 var jumps_left : int
 var holding_jump := false
 
@@ -165,12 +165,12 @@ func _input(_event):
 	acc.x = 0
 	if Input.is_action_pressed(input_left):
 		acc.x = -max_acceleration
-		facing_left = true
+		facing_left = false
 		
 	
 	if Input.is_action_pressed(input_right):
 		acc.x = max_acceleration
-		facing_left = false
+		facing_left = true
 	
 	if Input.is_action_just_pressed(input_jump):
 		holding_jump = true

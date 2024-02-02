@@ -525,7 +525,7 @@ shape = SubResource("CircleShape2D_q7m2h")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_p6m21")
-animation = &"salade"
+animation = &"noodles1"
 
 [node name="PickArea" type="Area2D" parent="."]
 collision_layer = 2
