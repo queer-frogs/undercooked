@@ -337,9 +337,9 @@ func wall_jump():
 	sprite_2d.animation = sprite_wall_jump
 	velocity.y = -double_jump_velocity
 	if facing_left:
-		velocity.x = max_acceleration*0.3 
-	else :
 		velocity.x = -max_acceleration*0.3 
+	else :
+		velocity.x = max_acceleration*0.3 
 	current_jump_type = JumpType.AIR
 	
 	jumped.emit(false)
