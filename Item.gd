@@ -36,19 +36,41 @@ func _process(_delta):
 		
 func _input(_event):
 	# Interaction processing
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact_1"):
 		if picked:
-			# drop
-			picked = false
-
-			playerPicker.can_pick = true
-			playerPicker = null
-			just_dropped = true
+			if playerPicker.name == "Character1":
+				# drop
+				picked = false
+				playerPicker.can_pick = true
+				playerPicker = null
+				just_dropped = true
 		else:
 			# pick
 			var bodies = $PickArea.get_overlapping_bodies()
 			for body in bodies:
-				if body.name in ["Character1", "Character2"]:
+				if body.name == "Character1":
+					playerPicker= body
+			if playerPicker != null and playerPicker.can_pick:
+				picked = true
+				playerPicker.can_pick = false
+				just_picked = true
+			else:
+				playerPicker = null
+	
+	if Input.is_action_just_pressed("interact_2"):
+		if picked:
+			if playerPicker.name == "Character2":
+				# drop
+				picked = false
+
+				playerPicker.can_pick = true
+				playerPicker = null
+				just_dropped = true
+		else:
+			# pick
+			var bodies = $PickArea.get_overlapping_bodies()
+			for body in bodies:
+				if body.name == "Character2":
 					playerPicker= body
 			if playerPicker != null and playerPicker.can_pick:
 				picked = true

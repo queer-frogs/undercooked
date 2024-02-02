@@ -528,6 +528,12 @@ type = "wok"
 necessaryTime = 6
 over = true
 
+[node name="Boil" parent="." instance=ExtResource("8_awvib")]
+position = Vector2(1065, 416)
+type = "boil"
+necessaryTime = 4
+over = true
+
 [node name="Box of Tomatoes" parent="." instance=ExtResource("6_hyvq5")]
 position = Vector2(465, 84)
 ingredient_type = "Tomato"
@@ -560,3 +566,4 @@ input_jump = "jump_2"
 input_up = "up_2"
 input_down = "down_2"
 input_dash = "dash_2"
+interact = "interact_2"

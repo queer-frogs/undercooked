@@ -81,36 +81,52 @@ func _process(_delta):
 
 func _input(_event):
 	player = null
-	if Input.is_action_just_pressed("use"):
+	if Input.is_action_just_pressed("interact_1"):
 		if used :
 			var bodies = $UseArea.get_overlapping_bodies()
 			for body in bodies:
-				if body.name in ["Character1", "Character2"]:
+				if body.name == "Character1":
 					player = body
-			if player != null and player.can_pick:
-				object.playerPicker = player
-				object.picked = true
-				object.just_dropped = false
-				player.can_pick = false
-				stop_use()
-				used = false
+			if player != null:
+				if object.just_picked == true :
+					object.playerPicker = player
+					stop_use()
+					used = false
 		else :
 			var bodies = $UseArea.get_overlapping_bodies()
 			for body in bodies:
-				if body.name in ["Character1", "Character2"]:
+				if body.name == "Character1":
 					player = body
-			if player != null and not player.can_pick:
-				used = true
+			if player != null :
 				var area = $UseArea.get_overlapping_areas()
 				if area :
 					object = area[0].get_parent()
-					object.visible = false
-					object.picked = false
-					object.just_dropped = true
-					player.can_pick = true
-					start_use()
-				
-
-
-func _on_timer_timeout():
-	pass # Replace with function body.
+					if object.just_dropped == true :
+						object.visible = false
+						used = true
+						start_use()
+						
+	if Input.is_action_just_pressed("interact_2"):
+		if used :
+			var bodies = $UseArea.get_overlapping_bodies()
+			for body in bodies:
+				if body.name =="Character2":
+					player = body
+			if player != null:
+				if object.just_picked == true :
+					object.playerPicker = player
+					stop_use()
+					used = false
+		else :
+			var bodies = $UseArea.get_overlapping_bodies()
+			for body in bodies:
+				if body.name == "Character2":
+					player = body
+			if player != null :
+				var area = $UseArea.get_overlapping_areas()
+				if area :
+					object = area[0].get_parent()
+					if object.just_dropped == true :
+						object.visible = false
+						used = true
+						start_use()

@@ -13,6 +13,9 @@ func setup(type: String, init_position: Vector2, box: Box):
 	originBox = box
 	dish = false
 	itemType = type
+	wokResult = "coal"
+	boilResult = "coal"
+	chopResult = "coal"
 	if itemType == "Zucchini":
 		$Sprite.play("zucchini")
 		chopResult = "choppedZucchini"
