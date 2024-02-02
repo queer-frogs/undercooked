@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://clue6jsscl3fd" path="res://Box.tscn" id="6_hyvq5"]
 [ext_resource type="Script" path="res://Moving Platform.gd" id="8_5e3ai"]
 [ext_resource type="PackedScene" uid="uid://rnl0nqct56jw" path="res://Machine.tscn" id="8_awvib"]
-[ext_resource type="PackedScene" uid="uid://dqscdpicqbu3w" path="res://Plating.tscn" id="9_f1m3c"]
+[ext_resource type="PackedScene" path="res://Plating.tscn" id="9_f1m3c"]
 [ext_resource type="Texture2D" uid="uid://br0dobf4euyag" path="res://Off.png" id="9_t5y06"]
 [ext_resource type="AudioStream" uid="uid://4ex4o25ct4u" path="res://vrais assets/music.ogg" id="10_78kqo"]
 [ext_resource type="Script" path="res://Game_manager.gd" id="10_worv4"]
-[ext_resource type="PackedScene" uid="uid://b5pm6gwlw2n18" path="res://conveyer_belt.tscn" id="11_28vo7"]
+[ext_resource type="PackedScene" path="res://conveyer_belt.tscn" id="11_28vo7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbib4"]
 texture = ExtResource("2_rmpv8")
@@ -564,9 +564,6 @@ ingredient_type = "Eggplant"
 stream = ExtResource("10_78kqo")
 autoplay = true
 
-[node name="Character1" parent="." instance=ExtResource("3_2jxds")]
-position = Vector2(-29, 7)
-
 [node name="Game_manager" type="Node" parent="."]
 script = ExtResource("10_worv4")
 
@@ -594,6 +591,9 @@ text = "woooooohoo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Character1" parent="." instance=ExtResource("3_2jxds")]
+position = Vector2(109, 227)
+
 [node name="Character2" parent="." instance=ExtResource("3_2jxds")]
 position = Vector2(496, -169)
 input_left = "move_left_2"
@@ -603,9 +603,6 @@ input_up = "up_2"
 input_down = "down_2"
 input_dash = "dash_2"
 interact = "interact_2"
-
-[node name="Character3" parent="." instance=ExtResource("3_2jxds")]
-position = Vector2(-29, 7)
 
 [node name="Plating" parent="." instance=ExtResource("9_f1m3c")]
 position = Vector2(669, 580)
