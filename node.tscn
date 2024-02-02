@@ -691,15 +691,22 @@ offset_right = 1143.0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="conveyer_belt/UI/Panel"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 94.0
+offset_top = -3.0
+offset_right = -228.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.115, 1.115)
 text = "woooooohoo"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Character2" parent="." instance=ExtResource("3_2jxds")]
 position = Vector2(109, 227)
