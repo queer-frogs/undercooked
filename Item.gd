@@ -83,3 +83,5 @@ func _input(_event):
 				apply_central_impulse(Vector2(1000*a,-600))
 				self.position[1] -= 15
 				self.position[0] -= 15 
+func delete():
+	queue_free()
