@@ -21,7 +21,7 @@ func setup(type: String, init_position: Vector2, box: Box):
 		chopResult = "choppedTomato"
 	elif itemType == "Noodles":
 		$Sprite.play("noodles")
-		chopResult = "coal"
+		wokResult = "boiledNoodles"
 	elif itemType == "coal":
 		$Sprite.play("coal")
 		chopResult = "coal"
@@ -31,9 +31,22 @@ func setup(type: String, init_position: Vector2, box: Box):
 	elif itemType == "Carrot":
 		$Sprite.play("carrot")
 		chopResult = "choppedCarrot"
+	elif itemType == "choppedTomato":
+		$Sprite.play("choppedTomato")
+		chopResult = "choppedTomato"
+		wokResult = "cookedTomato"
 	elif itemType == "choppedCarrot":
 		$Sprite.play("choppedCarrot")
 		chopResult = "choppedCarrot"
+		wokResult = "cookedCarrot"
+	elif itemType == "choppedEggplant":
+		$Sprite.play("choppedEggplant")
+		chopResult = "choppedEggplant"
+		wokResult = "choppedEggplant"
+	elif itemType == "choppedZucchini":
+		$Sprite.play("choppedZucchini")
+		chopResult = "choppedZucchini"
+		wokResult = "choppedZucchini"
 	else:
 		printerr("Error : the type provided is not supported.")
 	
