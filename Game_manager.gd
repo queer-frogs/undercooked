@@ -1,9 +1,10 @@
 extends Node
 
 var repas_faits = 0
-var dishes_to_make = { "Tomato" : 2 , "Eggplant" : 3, "banana" :2} 
+var dishes_to_make = { "Tomato" : 2 , "Eggplant" : 3, "Zucchini" :2} 
 @onready var label = $"../conveyer_belt/UI/Panel/Label"
 var text=""
+var victory=0
 
 func add_repas(name):
 	print(name)
@@ -27,4 +28,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	victory = 1
+	for plate in dishes_to_make:
+		if dishes_to_make[plate] != 0 :
+			victory = 0
+	if victory == 1 :
+		print("victoire")
