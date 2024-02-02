@@ -522,6 +522,11 @@ position = Vector2(239, 150)
 type = "chop"
 necessaryTime = 5
 
+[node name="Wok" parent="." instance=ExtResource("8_awvib")]
+position = Vector2(486, 450)
+type = "wok"
+necessaryTime = 6
+
 [node name="Box of Tomatoes" parent="." instance=ExtResource("6_hyvq5")]
 position = Vector2(465, 84)
 ingredient_type = "Tomato"
@@ -543,6 +548,9 @@ ingredient_type = "Eggplant"
 
 [node name="Boxes" type="Node" parent="."]
 
+[node name="Character1" parent="." instance=ExtResource("3_2jxds")]
+position = Vector2(-29, 7)
+
 [node name="Character2" parent="." instance=ExtResource("3_2jxds")]
 position = Vector2(496, -169)
 input_left = "move_left_2"
@@ -551,6 +559,3 @@ input_jump = "jump_2"
 input_up = "up_2"
 input_down = "down_2"
 input_dash = "dash_2"
-
-[node name="Character1" parent="." instance=ExtResource("3_2jxds")]
-position = Vector2(-29, 7)

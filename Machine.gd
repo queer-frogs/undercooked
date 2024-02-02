@@ -73,10 +73,20 @@ func _process(_delta):
 
 
 func _input(_event):
+	player = null
 	if Input.is_action_just_pressed("use"):
 		if used :
-			used = false
-			stop_use()
+			var bodies = $UseArea.get_overlapping_bodies()
+			for body in bodies:
+				if body.name in ["Character1", "Character2"]:
+					player = body
+			if player != null and player.can_pick:
+				object.playerPicker = player
+				object.picked = true
+				object.just_dropped = false
+				player.can_pick = false
+				stop_use()
+				used = false
 		else :
 			var bodies = $UseArea.get_overlapping_bodies()
 			for body in bodies:
@@ -85,9 +95,14 @@ func _input(_event):
 			if player != null and not player.can_pick:
 				used = true
 				var area = $UseArea.get_overlapping_areas()
-				object = area[0].get_parent()
-				object.visible = false
-				start_use()
+				if area :
+					object = area[0].get_parent()
+					object.visible = false
+					object.picked = false
+					object.just_dropped = true
+					player.can_pick = true
+					start_use()
+				
 
 
 func _on_timer_timeout():
