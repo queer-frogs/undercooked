@@ -3,14 +3,22 @@ class_name Machine
 
 var ellapsedtime : float = 0
 var timer_on = false
+@export var type : String
 @export var necessaryTime: int
-var result : String
 var used: bool = false
 var player : CharacterBody2D = null
 var object : RigidBody2D = null
 
 func _init():
 	pass
+	
+func setup():
+	if type == "chop":
+		$Sprite.play("chop")
+	elif type == "wok":
+		$Sprite.play("wok")
+	elif type == "boil":
+		$Sprite.play("boil")
 
 func start_use():
 	timer_on = true
@@ -18,27 +26,33 @@ func start_use():
 func stop_use():
 	timer_on = false
 	if necessaryTime <= ellapsedtime and ellapsedtime <= (necessaryTime + 5) :
-		result = "cooked"
 		$TimerLabel.text = ""
-		#object.setup(, object.global_position, object.box)
-		print("perfect")
+		ellapsedtime = 0
 		
-	elif ellapsedtime < necessaryTime :
-		result = "undercooked"
-		object.visible = true
-		print("try again")
+		if type == "chop":
+			object.setup(object.chopResult, object.global_position, object.originBox)
+		
+		elif type == "boil":
+			object.setup(object.boilResult, object.global_position, object.originBox)
+		
+		elif type == "cook":
+			object.setup(object.cookResult, object.global_position, object.originBox)
+		
 		
 	elif ellapsedtime > (necessaryTime + 5) :
-		result = "overcooked"
 		$TimerLabel.text = ""
-		#object.setup(, object.global_position, object.box)
-		print("trash")
+		ellapsedtime = 0
+		object.setup("coal", object.global_position, object.originBox)
+		
+	object.visible = true
+	var white = Color(1.0,1.0,1.0,1.0)
+	$TimerLabel.set("theme_override_colors/font_color",white)
 		
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	setup()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,7 +86,6 @@ func _input(_event):
 				used = true
 				var area = $UseArea.get_overlapping_areas()
 				object = area[0].get_parent()
-				print(object)
 				object.visible = false
 				start_use()
 
