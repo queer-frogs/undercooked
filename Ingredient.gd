@@ -82,7 +82,7 @@ func setup(type: String, init_position: Vector2, box: Box):
 	elif itemType == "MousseMacabre":
 		dish = true
 		$Sprite.play("MousseMacabre")
-	elif itemType == "Tomato-Carrot Noodles1":
+	elif itemType == "Tomato-Carrot Noodles":
 		dish = true
 		$Sprite.play("noodles1")
 	elif itemType == "Eggplant-Zucchini Noodles":
