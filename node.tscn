@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://byx12llv7aqv1"]
+[gd_scene load_steps=17 format=3 uid="uid://byx12llv7aqv1"]
 
 [ext_resource type="Texture2D" uid="uid://ct4g2y2krmr1c" path="res://Blue.png" id="1_5xulf"]
 [ext_resource type="Script" path="res://node.gd" id="1_ku0r5"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://4ex4o25ct4u" path="res://vrais assets/music.ogg" id="10_78kqo"]
 [ext_resource type="Script" path="res://Game_manager.gd" id="10_worv4"]
 [ext_resource type="PackedScene" uid="uid://b5pm6gwlw2n18" path="res://conveyer_belt.tscn" id="11_28vo7"]
+[ext_resource type="Script" path="res://Time.gd" id="13_i3rh8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbib4"]
 texture = ExtResource("2_rmpv8")
@@ -609,3 +610,16 @@ position = Vector2(-29, 7)
 
 [node name="Plating" parent="." instance=ExtResource("9_f1m3c")]
 position = Vector2(271, 584)
+
+[node name="Time" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.039
+anchor_top = 0.005
+anchor_right = 0.161
+anchor_bottom = 0.087
+offset_left = -7.928
+offset_top = -0.24
+offset_right = 13.528
+offset_bottom = 12.624
+theme_override_font_sizes/font_size = 24
+script = ExtResource("13_i3rh8")
