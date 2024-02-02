@@ -36,7 +36,7 @@ func _input(_event):
 				object = area[0].get_parent()
 				if object.just_dropped == true :
 					var name_of_the_object = object.itemType 
-					game_manager.add_repas(name_of_the_object)
+					game_manager.add_dish(name_of_the_object)
 					object.delete()
 
 

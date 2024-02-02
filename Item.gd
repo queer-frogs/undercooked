@@ -62,7 +62,6 @@ func _input(_event):
 			if playerPicker.name == "Character2":
 				# drop
 				picked = false
-
 				playerPicker.can_pick = true
 				playerPicker = null
 				just_dropped = true
@@ -87,6 +86,7 @@ func _input(_event):
 				if playerPicker.facing_left == true :
 					a= -1
 				picked = false
+				playerPicker.can_pick = true
 				playerPicker = null
 				self.linear_velocity = Vector2(0,0)
 				apply_central_impulse(Vector2(1000*a,-600))
@@ -100,6 +100,7 @@ func _input(_event):
 				if playerPicker.facing_left == true :
 					a= -1
 				picked = false
+				playerPicker.can_pick = true
 				playerPicker = null
 				self.linear_velocity = Vector2(0,0)
 				apply_central_impulse(Vector2(1000*a,-600))
