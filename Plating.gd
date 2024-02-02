@@ -12,9 +12,9 @@ var resultType: String = ""
 const recipes = {
 	["cookedEggplant", "cookedEggplant", "cookedEggplant"] : "moussaka",
 	["choppedCarrot", "choppedTomato", "choppedZucchini"]: "salad",
-	["boiledNoodles", "cookedCarrot", "cookedTomato"] : "noodle1",
-	["boiledNoodles", "cookedEggplant", "cookedZucchini"] : "noodle2",
-	["boiledNoodles", "cookedTomato", "cookedZucchini"] : "noodle3",
+	["boiledNoodles", "cookedCarrot", "cookedTomato"] : "noodles1",
+	["boiledNoodles", "cookedEggplant", "cookedZucchini"] : "noodles2",
+	["boiledNoodles", "cookedTomato", "cookedZucchini"] : "noodles3",
 }
 
 # Called when the node enters the scene tree for the first time.
