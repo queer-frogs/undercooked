@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btyqlid3mmqqf"
-path="res://.godot/imported/noodle-1.png.png-8b4a8aab50c306dbe6d9e4d4368da38f.ctex"
+uid="uid://cyy3ngc23836i"
+path="res://.godot/imported/cooked_zucchini.png-e72a29ceffcdc4df49374ad0b7a8f5f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://vrais assets/noodle-1.png.png"
-dest_files=["res://.godot/imported/noodle-1.png.png-8b4a8aab50c306dbe6d9e4d4368da38f.ctex"]
+source_file="res://vrais assets/cooked_zucchini.png"
+dest_files=["res://.godot/imported/cooked_zucchini.png-e72a29ceffcdc4df49374ad0b7a8f5f8.ctex"]
 
 [params]
 
