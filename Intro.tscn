@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctk85xji68f8k"]
+
+[ext_resource type="Texture2D" uid="uid://dpdm457iyn7l5" path="res://assets_temporaires/Background/Yellow.png" id="1_heqnp"]
+[ext_resource type="Texture2D" uid="uid://dadia0e0rt3rq" path="res://text/Cool Text - Chuck 451772778640679.png" id="2_3kii8"]
+[ext_resource type="Texture2D" uid="uid://cksdumk37l3lb" path="res://text/cooltext451772758683178.png" id="3_rb4ax"]
+[ext_resource type="Texture2D" uid="uid://di01aesokibcs" path="res://text/Cool Text - Davy 451772812681209.png" id="4_cntyy"]
+[ext_resource type="Texture2D" uid="uid://dn5chrrxp3ydx" path="res://text/cooltext451772897839074.png" id="5_c2yj0"]
+[ext_resource type="Texture2D" uid="uid://bw8ms1atanepy" path="res://text/cooltext451772729697101.png" id="6_1to8e"]
+[ext_resource type="Script" path="res://Button.gd" id="7_ioryi"]
+[ext_resource type="Texture2D" uid="uid://n45x76seyjx1" path="res://assets_temporaires/Enemies/Chicken/Run (32x34).png" id="8_bwidr"]
+[ext_resource type="Texture2D" uid="uid://cy6lstvbm6bxj" path="res://assets_temporaires/Enemies/Duck/Jump (36x36).png" id="9_gufrx"]
+
+[node name="Intro" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 0.545098, 1)
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 1.008
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = -0.216064
+offset_bottom = 8.0
+texture = ExtResource("1_heqnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(339, 126)
+scale = Vector2(0.806787, 0.952381)
+texture = ExtResource("2_3kii8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(583, 162)
+scale = Vector2(0.877778, 0.961538)
+texture = ExtResource("3_rb4ax")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(823, 144)
+texture = ExtResource("4_cntyy")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(600, 249)
+texture = ExtResource("5_c2yj0")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(592, 339)
+scale = Vector2(1.21296, 1.26316)
+texture = ExtResource("6_1to8e")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.917647, 0, 1, 1)
+offset_top = 377.0
+offset_right = 914.0
+offset_bottom = 561.0
+scale = Vector2(1.265, 1.265)
+text = "Hi, and welcome to undercooked, a game made in 48 hours !
+            Your goal is to complete all the recipes on the lower part of the screen as fast as possible ! 
+            Plug in 2 controllers for 2 player, and use the joystick to move, A to jump, X to pickup and use objects,
+            and LR to dash and throw objects if picked up."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 497.0
+offset_top = 575.0
+offset_right = 673.0
+offset_bottom = 631.0
+text = "PLAY"
+script = ExtResource("7_ioryi")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2526, 670)
+rotation = 0.225147
+scale = Vector2(7.35435, 6.94678)
+texture = ExtResource("8_bwidr")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(167, 352)
+rotation = -0.44855
+scale = Vector2(5.75595, 4.95722)
+texture = ExtResource("9_gufrx")
+flip_h = true
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
