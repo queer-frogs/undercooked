@@ -31,30 +31,33 @@ func _input(_event):
 		var bodies = $UseArea.get_overlapping_bodies()
 		for body in bodies:
 			if body.name == "Character1":
-				playerUser = body
-		if playerUser != null and not playerUser.can_pick:
+				playerUser = body			
+		if playerUser != null:
 			var area = $UseArea.get_overlapping_areas()
+			print(area)
 			if area :
 				lastIngredient = area[0].get_parent()
-				ingredient_types.append(lastIngredient.itemType)
-				lastIngredient.queue_free()
-				playerUser.can_pick = true
-				used_slots += 1
+				if lastIngredient.just_dropped:
+					ingredient_types.append(lastIngredient.itemType)
+					lastIngredient.queue_free()
+					used_slots += 1
 			if used_slots == capacity:
 				plating()
+				
 	if Input.is_action_just_pressed("interact_2"):
 		var bodies = $UseArea.get_overlapping_bodies()
 		for body in bodies:
 			if body.name == "Character2":
 				playerUser = body
-		if playerUser != null and not playerUser.can_pick:
+		if playerUser != null:
 			var area = $UseArea.get_overlapping_areas()
+			print(area)
 			if area :
 				lastIngredient = area[0].get_parent()
-				ingredient_types.append(lastIngredient.itemType)
-				lastIngredient.queue_free()
-				playerUser.can_pick = true
-				used_slots += 1
+				if lastIngredient.just_dropped:
+					ingredient_types.append(lastIngredient.itemType)
+					lastIngredient.queue_free()
+					used_slots += 1
 			if used_slots == capacity:
 				plating()
 
@@ -64,6 +67,11 @@ func plating():
 		resultType = recipes[ingredient_types]
 	else:
 		resultType = "coal"
-	get_parent().spawn_ingredient(resultType, global_position, null)
+	var pos = global_position
+	pos[1] -= 50
+	get_parent().spawn_ingredient(resultType, pos, null)
+	ingredient_types = []
+	used_slots = 0
+
 	
 	

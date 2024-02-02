@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctk85xji68f8k"]
+[gd_scene load_steps=10 format=3 uid="uid://0bbsv45t8mb5"]
 
 [ext_resource type="Texture2D" uid="uid://dpdm457iyn7l5" path="res://assets_temporaires/Background/Yellow.png" id="1_heqnp"]
 [ext_resource type="Texture2D" uid="uid://dadia0e0rt3rq" path="res://text/Cool Text - Chuck 451772778640679.png" id="2_3kii8"]
@@ -54,16 +54,17 @@ offset_bottom = 561.0
 scale = Vector2(1.265, 1.265)
 text = "Hi, and welcome to undercooked, a game made in 48 hours !
             Your goal is to complete all the recipes on the lower part of the screen as fast as possible ! 
-            Plug in 2 controllers for 2 player, and use the joystick to move, A to jump, X to pickup and use objects,
+            Plug in 2 controllers for 2 players (or use your keyboard, arrows and zqsd),
+and use the joystick to move, A to jump, X to pickup and use objects,
             and LR to dash and throw objects if picked up."
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
-offset_left = 497.0
-offset_top = 575.0
-offset_right = 673.0
-offset_bottom = 631.0
+offset_left = 491.0
+offset_top = 584.0
+offset_right = 667.0
+offset_bottom = 640.0
 text = "PLAY"
 script = ExtResource("7_ioryi")
 
