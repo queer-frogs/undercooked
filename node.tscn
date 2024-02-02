@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://byx12llv7aqv1"]
+[gd_scene load_steps=13 format=3 uid="uid://byx12llv7aqv1"]
 
 [ext_resource type="Texture2D" uid="uid://ct4g2y2krmr1c" path="res://Blue.png" id="1_5xulf"]
 [ext_resource type="Script" path="res://node.gd" id="1_ku0r5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://clue6jsscl3fd" path="res://Box.tscn" id="6_hyvq5"]
 [ext_resource type="Script" path="res://Moving Platform.gd" id="8_5e3ai"]
 [ext_resource type="PackedScene" uid="uid://rnl0nqct56jw" path="res://Machine.tscn" id="8_awvib"]
+[ext_resource type="PackedScene" uid="uid://dqscdpicqbu3w" path="res://Plating.tscn" id="9_f1m3c"]
 [ext_resource type="Texture2D" uid="uid://br0dobf4euyag" path="res://Off.png" id="9_t5y06"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbib4"]
@@ -519,8 +520,6 @@ metadata/_edit_group_ = true
 
 [node name="ChoppingBoard" parent="." instance=ExtResource("8_awvib")]
 position = Vector2(239, 150)
-type = "chop"
-necessaryTime = 5
 
 [node name="Box of Tomatoes" parent="." instance=ExtResource("6_hyvq5")]
 position = Vector2(465, 84)
@@ -554,3 +553,6 @@ input_dash = "dash_2"
 
 [node name="Character1" parent="." instance=ExtResource("3_2jxds")]
 position = Vector2(-29, 7)
+
+[node name="Plating" parent="." instance=ExtResource("9_f1m3c")]
+position = Vector2(437, 586)
