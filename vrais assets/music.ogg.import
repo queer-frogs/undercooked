@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://4ex4o25ct4u"
+path="res://.godot/imported/music.ogg-52bf8c85e15272e64d0476f0a3856c6e.oggvorbisstr"
+
+[deps]
+
+source_file="res://vrais assets/music.ogg"
+dest_files=["res://.godot/imported/music.ogg-52bf8c85e15272e64d0476f0a3856c6e.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=160.0
+beat_count=0
+bar_beats=4
