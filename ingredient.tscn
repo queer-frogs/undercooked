@@ -1,12 +1,14 @@
-[gd_scene load_steps=69 format=3 uid="uid://dt7wai2rc6o6e"]
+[gd_scene load_steps=73 format=3 uid="uid://dt7wai2rc6o6e"]
 
 [ext_resource type="Script" path="res://Ingredient.gd" id="1_okdlo"]
 [ext_resource type="Texture2D" uid="uid://cm44blmaultpb" path="res://vrais assets/carott.png.png" id="2_lhjd3"]
 [ext_resource type="Texture2D" uid="uid://bmw40u13l6dwp" path="res://assets_temporaires/Items/Fruits/Apple.png" id="2_migk8"]
 [ext_resource type="Texture2D" uid="uid://d33vfdqi7jyur" path="res://assets_temporaires/Items/Fruits/Bananas.png" id="3_4qtkn"]
 [ext_resource type="Texture2D" uid="uid://cwabsu7usk5ps" path="res://vrais assets/eggplant.png" id="3_yeun6"]
+[ext_resource type="Texture2D" uid="uid://ctg61d3woqr4n" path="res://vrais assets/moussaka-1.png.png" id="4_sgjhl"]
 [ext_resource type="Texture2D" uid="uid://drsu36fod77m2" path="res://vrais assets/noodles.png" id="4_tmtrm"]
 [ext_resource type="Texture2D" uid="uid://b7a11ihhouwye" path="res://vrais assets/tomato-1.png.png" id="5_arc4r"]
+[ext_resource type="Texture2D" uid="uid://stgh7xxrmf37" path="res://vrais assets/mousse macabre-1.png.png" id="5_y82f8"]
 [ext_resource type="Texture2D" uid="uid://bwl7ab0ti8t3l" path="res://vrais assets/zucchini.png" id="6_vdhtt"]
 [ext_resource type="Texture2D" uid="uid://dfuhwhlab3ml7" path="res://vrais assets/zuchini chopped-1.png(1).png" id="9_wr77e"]
 [ext_resource type="Texture2D" uid="uid://chcj1vjvdarsq" path="res://vrais assets/eggplant chopped-1.png(2).png" id="10_1xrvf"]
@@ -28,6 +30,14 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dessi"]
 atlas = ExtResource("3_yeun6")
 region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88m60"]
+atlas = ExtResource("4_sgjhl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjqu6"]
+atlas = ExtResource("5_y82f8")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_maaj8"]
 atlas = ExtResource("4_tmtrm")
@@ -229,6 +239,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"Eggplant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88m60")
+}],
+"loop": true,
+"name": &"Moussaka",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjqu6")
+}],
+"loop": true,
+"name": &"MousseMacabre",
 "speed": 5.0
 }, {
 "frames": [{
@@ -455,7 +481,7 @@ shape = SubResource("CircleShape2D_q7m2h")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_p6m21")
-animation = &"cookedEggplant"
+animation = &"MousseMacabre"
 
 [node name="PickArea" type="Area2D" parent="."]
 collision_layer = 2

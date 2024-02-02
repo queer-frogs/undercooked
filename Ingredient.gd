@@ -48,7 +48,12 @@ func setup(type: String, init_position: Vector2, box: Box):
 		$Sprite.play("choppedEggplant")
 		chopResult = "choppedEggplant"
 		wokResult = "cookedEggplant"
-
+	elif itemType == "Moussaka":
+		$Sprite.play("Moussaka")
+		boilResult = "MousseMacabre"
+		wokResult = "MousseMacabre"
+	elif itemType == "MousseMacabre":
+		$Sprite.play("MousseMacabre")
 	elif itemType == "choppedZucchini":
 		$Sprite.play("choppedZucchini")
 		chopResult = "choppedZucchini"
