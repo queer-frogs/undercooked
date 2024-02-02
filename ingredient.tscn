@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://dt7wai2rc6o6e"]
+[gd_scene load_steps=78 format=3 uid="uid://dt7wai2rc6o6e"]
 
 [ext_resource type="Script" path="res://Ingredient.gd" id="1_okdlo"]
 [ext_resource type="Texture2D" uid="uid://cm44blmaultpb" path="res://vrais assets/carott.png.png" id="2_lhjd3"]
@@ -13,12 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://dfuhwhlab3ml7" path="res://vrais assets/zuchini chopped-1.png(1).png" id="9_wr77e"]
 [ext_resource type="Texture2D" uid="uid://chcj1vjvdarsq" path="res://vrais assets/eggplant chopped-1.png(2).png" id="10_1xrvf"]
 [ext_resource type="Texture2D" uid="uid://b7esfauiojgqx" path="res://vrais assets/tomates chopped-1.png.png" id="11_ehdpe"]
+[ext_resource type="Texture2D" uid="uid://bsjp4ftchnnm2" path="res://vrais assets/noodle_boiled.png" id="11_n55dr"]
 [ext_resource type="Texture2D" uid="uid://qhxs264uaieo" path="res://vrais assets/zuchini chopped-1.png.png" id="12_fmom8"]
 [ext_resource type="Texture2D" uid="uid://dt35rkkbjyq6y" path="res://vrais assets/coal-1.png.png" id="13_tbntc"]
 [ext_resource type="Texture2D" uid="uid://6432dv6quqp6" path="res://vrais assets/cooked_carrot.png" id="14_kp7n3"]
 [ext_resource type="Texture2D" uid="uid://bm7mw3ga0lgp7" path="res://vrais assets/eggplant_cooked.png" id="15_lbetq"]
 [ext_resource type="Texture2D" uid="uid://ucacvj5m3ix5" path="res://vrais assets/tomato_cooked.png" id="16_72n6o"]
 [ext_resource type="Texture2D" uid="uid://cyy3ngc23836i" path="res://vrais assets/cooked_zucchini.png" id="17_yti6g"]
+[ext_resource type="Texture2D" uid="uid://c28y83p21nurl" path="res://vrais assets/noodles1.png" id="21_2qwnn"]
+[ext_resource type="Texture2D" uid="uid://dyysh2submsr5" path="res://vrais assets/noodles2.png" id="22_wuh3g"]
+[ext_resource type="Texture2D" uid="uid://cuwvfitw6k2j4" path="res://vrais assets/noodles3.png" id="23_nhe3x"]
+[ext_resource type="Texture2D" uid="uid://clbxns1hvmrdo" path="res://vrais assets/salade.png" id="24_lm2rd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7m2h"]
 radius = 11.4018
@@ -395,6 +400,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("11_n55dr")
+}],
+"loop": true,
+"name": &"boiledNoodles",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mkscp")
 }],
 "loop": true,
@@ -464,6 +477,38 @@ animations = [{
 "loop": true,
 "name": &"cookedZucchini",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_2qwnn")
+}],
+"loop": true,
+"name": &"noodles1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_wuh3g")
+}],
+"loop": true,
+"name": &"noodles2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_nhe3x")
+}],
+"loop": true,
+"name": &"noodles3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_lm2rd")
+}],
+"loop": true,
+"name": &"salade",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fe26t"]
@@ -479,9 +524,8 @@ shape = SubResource("CircleShape2D_q7m2h")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_p6m21")
-animation = &"MousseMacabre"
+animation = &"salade"
 
 [node name="PickArea" type="Area2D" parent="."]
 collision_layer = 2
