@@ -403,7 +403,7 @@ shape = SubResource("CircleShape2D_q7m2h")
 texture_filter = 1
 scale = Vector2(0.975, 0.975)
 sprite_frames = SubResource("SpriteFrames_p6m21")
-animation = &"eggplant"
+animation = &"choppedEggplant"
 
 [node name="PickArea" type="Area2D" parent="."]
 collision_layer = 2

@@ -11,6 +11,14 @@ var object : RigidBody2D = null
 
 func _init():
 	pass
+	
+func setup():
+	if type == "chop":
+		$AnimatedSprite2D.play("chop")
+	elif type == "wok":
+		$AnimatedSprite2D.play("wok")
+	elif type == "boil":
+		$AnimatedSprite2D.play("boil")
 
 func start_use():
 	timer_on = true
@@ -20,12 +28,21 @@ func stop_use():
 	if necessaryTime <= ellapsedtime and ellapsedtime <= (necessaryTime + 5) :
 		$TimerLabel.text = ""
 		ellapsedtime = 0
-		object.setup("banana", object.global_position, object.originBox)
+		
+		if object.itemType == "chop":
+			object.setup(object.chopResult, object.global_position, object.originBox)
+		
+		elif object.itemType == "boil":
+			object.setup(object.boilResult, object.global_position, object.originBox)
+		
+		elif object.itemType == "cook":
+			object.setup(object.cookResult, object.global_position, object.originBox)
+		
 		
 	elif ellapsedtime > (necessaryTime + 5) :
 		$TimerLabel.text = ""
 		ellapsedtime = 0
-		#object.setup(, object.global_position, object.box)
+		object.setup("coal", object.global_position, object.originBox)
 		
 	object.visible = true
 	var white = Color(1.0,1.0,1.0,1.0)
@@ -35,7 +52,7 @@ func stop_use():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	setup()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
