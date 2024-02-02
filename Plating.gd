@@ -10,9 +10,12 @@ var full = false
 var resultType: String = ""
 
 const recipes = {
-	["eggplant", "eggplant", "eggplant"] : "tomato"
+	["cookedEggplant", "cookedEggplant", "cookedEggplant"] : "moussaka",
+	["choppedCarrot", "choppedTomato", "choppedZucchini"]: "salad",
+	["boiledNoodles", "cookedCarrot", "cookedTomato"] : "noodle1",
+	["boiledNoodles", "cookedEggplant", "cookedZucchini"] : "noodle2",
+	["boiledNoodles", "cookedTomato", "cookedZucchini"] : "noodle3",
 }
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
