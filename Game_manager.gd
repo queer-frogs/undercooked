@@ -8,7 +8,6 @@ var victory: bool = false
 signal victory_signal
 
 func add_dish(name):
-	print(name)
 	if name in dishes_to_make and dishes_to_make[name] > 0 :
 		dishes_to_make[name] -= 1
 		var text=""
@@ -40,6 +39,5 @@ func check_win_condition():
 		if dishes_to_make[plate] > 0 :
 			victory = false
 	if victory:
-		print("Victory")
 		label.text = "Congratulations, press p to restart"
 		victory_signal.emit()

@@ -17,10 +17,7 @@ func _process(delta):
 
 func connect_to_signal():
 	var manager = get_node("../Game_manager")
-	print(manager)
 	manager.victory_signal.connect(on_victory)
-	print("connected")
 
 func on_victory():
-	print("stopped")
 	running = false
