@@ -34,7 +34,6 @@ func _input(_event):
 				playerUser = body			
 		if playerUser != null:
 			var area = $UseArea.get_overlapping_areas()
-			print(area)
 			if area :
 				lastIngredient = area[0].get_parent()
 				if lastIngredient.just_dropped:
@@ -51,7 +50,6 @@ func _input(_event):
 				playerUser = body
 		if playerUser != null:
 			var area = $UseArea.get_overlapping_areas()
-			print(area)
 			if area :
 				lastIngredient = area[0].get_parent()
 				if lastIngredient.just_dropped:

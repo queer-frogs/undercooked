@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5pm6gwlw2n18"]
+[gd_scene load_steps=5 format=3 uid="uid://u5dqmc3euw7l"]
 
 [ext_resource type="Script" path="res://conveyer_belt.gd" id="1_lc7yj"]
-[ext_resource type="Texture2D" uid="uid://cciu1ux74c77o" path="res://vrais assets/sender.png" id="2_gxlrj"]
+[ext_resource type="Texture2D" uid="uid://ctcg6oh2isjt1" path="res://vrais assets/trash.png" id="2_bnolw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mgvh"]
 size = Vector2(28, 27)
@@ -9,7 +9,7 @@ size = Vector2(28, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qqrc"]
 size = Vector2(60, 44.5)
 
-[node name="conveyer_belt" type="RigidBody2D"]
+[node name="Conveyer" type="RigidBody2D"]
 position = Vector2(246, 179)
 collision_layer = 8
 collision_mask = 10
@@ -19,7 +19,7 @@ script = ExtResource("1_lc7yj")
 texture_filter = 1
 position = Vector2(-6, -3)
 scale = Vector2(1.495, 1.495)
-texture = ExtResource("2_gxlrj")
+texture = ExtResource("2_bnolw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, -4.5)

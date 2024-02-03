@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqscdpicqbu3w"]
+[gd_scene load_steps=10 format=3 uid="uid://3lw201il0hk5"]
 
 [ext_resource type="Script" path="res://Plating.gd" id="1_ggv8k"]
 [ext_resource type="Texture2D" uid="uid://dww85f70bkko2" path="res://vrais assets/pot uncooked-1.png.png" id="2_nekwe"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://byx12llv7aqv1"]
+[gd_scene load_steps=29 format=3 uid="uid://byx12llv7aqv1"]
 
 [ext_resource type="Texture2D" uid="uid://ct4g2y2krmr1c" path="res://Blue.png" id="1_5xulf"]
 [ext_resource type="Script" path="res://node.gd" id="1_ku0r5"]
@@ -14,13 +14,15 @@
 [ext_resource type="Script" path="res://Moving Platform.gd" id="8_5e3ai"]
 [ext_resource type="PackedScene" uid="uid://rnl0nqct56jw" path="res://Machine.tscn" id="8_awvib"]
 [ext_resource type="Texture2D" uid="uid://bqm8j31lohddw" path="res://assets_temporaires/Individual Assets/Mountain_1.png" id="8_ysmxf"]
-[ext_resource type="PackedScene" uid="uid://dqscdpicqbu3w" path="res://Plating.tscn" id="9_f1m3c"]
+[ext_resource type="PackedScene" uid="uid://3lw201il0hk5" path="res://Plating.tscn" id="9_f1m3c"]
 [ext_resource type="Texture2D" uid="uid://prs6tjufe7vq" path="res://assets_temporaires/Individual Assets/Mountain_2.png" id="9_kkdu1"]
 [ext_resource type="Texture2D" uid="uid://br0dobf4euyag" path="res://Off.png" id="9_t5y06"]
 [ext_resource type="AudioStream" uid="uid://4ex4o25ct4u" path="res://vrais assets/music.ogg" id="10_78kqo"]
 [ext_resource type="Script" path="res://Game_manager.gd" id="10_worv4"]
-[ext_resource type="PackedScene" uid="uid://b5pm6gwlw2n18" path="res://conveyer_belt.tscn" id="11_28vo7"]
+[ext_resource type="PackedScene" uid="uid://u5dqmc3euw7l" path="res://conveyer_belt.tscn" id="11_28vo7"]
 [ext_resource type="Script" path="res://Time.gd" id="13_i3rh8"]
+[ext_resource type="Script" path="res://Trash.gd" id="19_7kivp"]
+[ext_resource type="Texture2D" uid="uid://ctcg6oh2isjt1" path="res://vrais assets/trash.png" id="20_a0vy8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbib4"]
 texture = ExtResource("2_rmpv8")
@@ -515,9 +517,22 @@ sources/0 = SubResource("TileSetAtlasSource_dbib4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tjrm"]
 size = Vector2(61, 19)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuek1"]
+size = Vector2(27, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4vln"]
+size = Vector2(70, 47.5)
+
 [node name="Node" type="Node"]
 script = ExtResource("1_ku0r5")
 metadata/_edit_horizontal_guides_ = [-55.0]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_78kqo")
+autoplay = true
+
+[node name="Game_manager" type="Node" parent="."]
+script = ExtResource("10_worv4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.807843, 0.807843, 0.807843, 1)
@@ -645,37 +660,8 @@ type = "boil"
 necessaryTime = 8
 over = true
 
-[node name="Box of Tomatoes" parent="." instance=ExtResource("6_hyvq5")]
-position = Vector2(465, 84)
-ingredient_type = "Tomato"
-
-[node name="Box of Zucchini" parent="." instance=ExtResource("6_hyvq5")]
-position = Vector2(1054, 84)
-
-[node name="Box of Noodles" parent="." instance=ExtResource("6_hyvq5")]
-position = Vector2(40, 353)
-ingredient_type = "Noodles"
-
-[node name="Box of Carrots" parent="." instance=ExtResource("6_hyvq5")]
-position = Vector2(670, 292)
-ingredient_type = "Carrot"
-
-[node name="Box of Eggplants" parent="." instance=ExtResource("6_hyvq5")]
-texture_filter = 1
-position = Vector2(477, 449)
-ingredient_type = "Eggplant"
-
-[node name="Boxes" type="Node" parent="."]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_78kqo")
-autoplay = true
-
-[node name="Character1" parent="." instance=ExtResource("3_2jxds")]
-position = Vector2(392, -54)
-
-[node name="Game_manager" type="Node" parent="."]
-script = ExtResource("10_worv4")
+[node name="Plating" parent="." instance=ExtResource("9_f1m3c")]
+position = Vector2(271, 584)
 
 [node name="conveyer_belt" parent="." instance=ExtResource("11_28vo7")]
 position = Vector2(245, 179)
@@ -708,6 +694,54 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Trash" type="RigidBody2D" parent="."]
+position = Vector2(1042, 613)
+collision_layer = 8
+collision_mask = 10
+script = ExtResource("19_7kivp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Trash"]
+position = Vector2(-19, -43)
+texture = ExtResource("20_a0vy8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash"]
+position = Vector2(-19.5, -42.5)
+shape = SubResource("RectangleShape2D_uuek1")
+
+[node name="UseArea" type="Area2D" parent="Trash"]
+position = Vector2(-1, 1)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/UseArea"]
+position = Vector2(-18, -43.25)
+shape = SubResource("RectangleShape2D_m4vln")
+
+[node name="Boxes" type="Node" parent="."]
+
+[node name="Box of Tomatoes" parent="." instance=ExtResource("6_hyvq5")]
+position = Vector2(465, 84)
+ingredient_type = "Tomato"
+
+[node name="Box of Zucchini" parent="." instance=ExtResource("6_hyvq5")]
+position = Vector2(1054, 84)
+
+[node name="Box of Noodles" parent="." instance=ExtResource("6_hyvq5")]
+position = Vector2(40, 353)
+ingredient_type = "Noodles"
+
+[node name="Box of Carrots" parent="." instance=ExtResource("6_hyvq5")]
+position = Vector2(670, 292)
+ingredient_type = "Carrot"
+
+[node name="Box of Eggplants" parent="." instance=ExtResource("6_hyvq5")]
+texture_filter = 1
+position = Vector2(477, 449)
+ingredient_type = "Eggplant"
+
+[node name="Character1" parent="." instance=ExtResource("3_2jxds")]
+position = Vector2(392, -54)
+
 [node name="Character2" parent="." instance=ExtResource("3_2jxds")]
 position = Vector2(109, 227)
 input_left = "move_left_2"
@@ -721,9 +755,6 @@ sprite_idle = "default_2"
 sprite_jump = "jump_2"
 sprite_run = "run_2"
 sprite_wall_jump = "wall_jump_2"
-
-[node name="Plating" parent="." instance=ExtResource("9_f1m3c")]
-position = Vector2(271, 584)
 
 [node name="Time" type="Label" parent="."]
 anchors_preset = -1
