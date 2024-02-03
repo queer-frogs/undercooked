@@ -19,6 +19,7 @@ const recipes = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Sprite.play("0_dt")
 	pass # Replace with function body.
 
 
@@ -31,7 +32,7 @@ func _input(_event):
 		var bodies = $UseArea.get_overlapping_bodies()
 		for body in bodies:
 			if body.name == "Character1":
-				playerUser = body			
+				playerUser = body
 		if playerUser != null:
 			var area = $UseArea.get_overlapping_areas()
 			if area :
@@ -40,6 +41,7 @@ func _input(_event):
 					ingredient_types.append(lastIngredient.itemType)
 					lastIngredient.queue_free()
 					used_slots += 1
+					$Sprite.play("%d_dt" % used_slots)
 			if used_slots == capacity:
 				plating()
 				
@@ -68,6 +70,7 @@ func plating():
 	var pos = global_position
 	pos[1] -= 50
 	get_parent().spawn_ingredient(resultType, pos, null)
+	$Sprite.play("0_dt")
 	ingredient_types = []
 	used_slots = 0
 
