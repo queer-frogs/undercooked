@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c32inp67rnjly"
+path="res://.godot/imported/Jump Anticipation (36x36).png-a0d441e7f405d2d783d886d9f48b5d03.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets_temporaires/Enemies/Duck/Jump Anticipation (36x36).png"
+dest_files=["res://.godot/imported/Jump Anticipation (36x36).png-a0d441e7f405d2d783d886d9f48b5d03.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

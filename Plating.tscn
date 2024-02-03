@@ -1,0 +1,129 @@
+[gd_scene load_steps=14 format=3 uid="uid://3lw201il0hk5"]
+
+[ext_resource type="Script" path="res://Plating.gd" id="1_ggv8k"]
+[ext_resource type="Texture2D" uid="uid://dww85f70bkko2" path="res://vrais assets/pot uncooked-1.png.png" id="2_nekwe"]
+[ext_resource type="Texture2D" uid="uid://clwjmqho02pic" path="res://vrais assets/0_dt.png" id="2_wytrs"]
+[ext_resource type="Texture2D" uid="uid://cclmwcqwue4" path="res://vrais assets/cutting table unused-1.png.png" id="3_ivsyb"]
+[ext_resource type="Texture2D" uid="uid://b5s3ek32fmis7" path="res://vrais assets/1_dt.png" id="3_nqwq3"]
+[ext_resource type="Texture2D" uid="uid://c0kn1re1fi8xi" path="res://vrais assets/plate.png" id="4_qr58i"]
+[ext_resource type="Texture2D" uid="uid://byx13n67a60qm" path="res://vrais assets/2_dt.png" id="4_vix16"]
+[ext_resource type="Texture2D" uid="uid://xdrncb46t7ev" path="res://vrais assets/empty pan-1.png.png" id="5_vpmqe"]
+[ext_resource type="Texture2D" uid="uid://c27v4kpey87v2" path="res://vrais assets/3_dt.png" id="5_xnjna"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qffn8"]
+atlas = ExtResource("4_qr58i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_betbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wytrs")
+}],
+"loop": true,
+"name": &"0_dt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nqwq3")
+}],
+"loop": true,
+"name": &"1_dt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vix16")
+}],
+"loop": true,
+"name": &"2_dt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xnjna")
+}],
+"loop": true,
+"name": &"3_dt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nekwe")
+}],
+"loop": true,
+"name": &"boil",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ivsyb")
+}],
+"loop": true,
+"name": &"chop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qffn8")
+}],
+"loop": true,
+"name": &"machine",
+"speed": 17.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_vpmqe")
+}],
+"loop": true,
+"name": &"wok",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8n7r"]
+size = Vector2(23.9983, 17.8813)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty2j2"]
+size = Vector2(84.0195, 92.0353)
+
+[node name="Plating" type="RigidBody2D"]
+position = Vector2(58, 42)
+collision_layer = 8
+collision_mask = 10
+script = ExtResource("1_ggv8k")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-9, -9)
+scale = Vector2(1.582, 1.381)
+sprite_frames = SubResource("SpriteFrames_betbo")
+animation = &"2_dt"
+autoplay = "machine"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2(-9.5, -8)
+scale = Vector2(1.87513, 1.56588)
+shape = SubResource("RectangleShape2D_l8n7r")
+
+[node name="UseArea" type="Area2D" parent="."]
+texture_filter = 1
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UseArea"]
+position = Vector2(-10.9216, -20.9851)
+rotation = -0.00263442
+shape = SubResource("RectangleShape2D_ty2j2")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = -11.0
+offset_top = -56.0
+offset_right = 29.0
+offset_bottom = -33.0
+rotation = -0.00049245
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
