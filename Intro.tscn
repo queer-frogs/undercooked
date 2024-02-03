@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=10 format=3 uid="uid://beqge8t3wfwqv"]
-
+[gd_scene load_steps=14 format=3 uid="uid://beqge8t3wfwqv"]
 
 [ext_resource type="Texture2D" uid="uid://dpdm457iyn7l5" path="res://assets_temporaires/Background/Yellow.png" id="1_heqnp"]
 [ext_resource type="Texture2D" uid="uid://dadia0e0rt3rq" path="res://text/Cool Text - Chuck 451772778640679.png" id="2_3kii8"]

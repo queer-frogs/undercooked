@@ -82,9 +82,9 @@ func _input(_event):
 	if Input.is_action_just_pressed("dash_1"):
 		if picked == true:
 			if playerPicker.name == "Character1":
-				a = 1
+				a = -1
 				if playerPicker.facing_left == true :
-					a= -1
+					a= 1
 				picked = false
 				playerPicker.can_pick = true
 				playerPicker = null
@@ -96,9 +96,9 @@ func _input(_event):
 	if Input.is_action_just_pressed("dash_2"):
 		if picked == true:
 			if playerPicker.name == "Character2":
-				a = 1
+				a = -1
 				if playerPicker.facing_left == true :
-					a= -1
+					a= 1
 				picked = false
 				playerPicker.can_pick = true
 				playerPicker = null
