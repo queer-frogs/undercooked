@@ -664,7 +664,7 @@ over = true
 position = Vector2(271, 584)
 
 [node name="conveyer_belt" parent="." instance=ExtResource("11_28vo7")]
-position = Vector2(245, 179)
+position = Vector2(223, 171)
 
 [node name="UI" type="CanvasLayer" parent="conveyer_belt"]
 
