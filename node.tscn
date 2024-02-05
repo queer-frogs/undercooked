@@ -661,7 +661,7 @@ necessaryTime = 8
 over = true
 
 [node name="Plating" parent="." instance=ExtResource("9_f1m3c")]
-position = Vector2(271, 584)
+position = Vector2(264, 584)
 
 [node name="conveyer_belt" parent="." instance=ExtResource("11_28vo7")]
 position = Vector2(223, 171)
@@ -743,7 +743,7 @@ ingredient_type = "Eggplant"
 position = Vector2(392, -54)
 
 [node name="Character2" parent="." instance=ExtResource("3_2jxds")]
-position = Vector2(109, 227)
+position = Vector2(174, 229)
 input_left = "move_left_2"
 input_right = "move_right_2"
 input_jump = "jump_2"

@@ -82,10 +82,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8n7r"]
-size = Vector2(23.9983, 17.8813)
+size = Vector2(36.2642, 33.2082)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty2j2"]
-size = Vector2(84.0195, 92.0353)
+size = Vector2(101.087, 64.8628)
 
 [node name="Plating" type="RigidBody2D"]
 position = Vector2(58, 42)
@@ -95,15 +95,15 @@ script = ExtResource("1_ggv8k")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-9, -9)
-scale = Vector2(1.582, 1.381)
+position = Vector2(-11.828, -18.726)
+scale = Vector2(2.11425, 1.76713)
 sprite_frames = SubResource("SpriteFrames_betbo")
-animation = &"2_dt"
+animation = &"3_dt"
 autoplay = "machine"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
-position = Vector2(-9.5, -8)
+position = Vector2(-12, -16)
 scale = Vector2(1.87513, 1.56588)
 shape = SubResource("RectangleShape2D_l8n7r")
 
@@ -113,17 +113,6 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UseArea"]
-position = Vector2(-10.9216, -20.9851)
+position = Vector2(-11.4577, -22.4356)
 rotation = -0.00263442
 shape = SubResource("RectangleShape2D_ty2j2")
-
-[node name="Timer" type="Timer" parent="."]
-
-[node name="TimerLabel" type="Label" parent="."]
-offset_left = -11.0
-offset_top = -56.0
-offset_right = 29.0
-offset_bottom = -33.0
-rotation = -0.00049245
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

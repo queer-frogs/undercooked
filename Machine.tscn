@@ -58,7 +58,7 @@ texture_filter = 1
 position = Vector2(-9, -9)
 scale = Vector2(0.851562, 0.74375)
 sprite_frames = SubResource("SpriteFrames_betbo")
-animation = &"boil"
+animation = &"chop"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3

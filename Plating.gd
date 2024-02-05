@@ -43,6 +43,7 @@ func _input(_event):
 					used_slots += 1
 					$Sprite.play("%d_dt" % used_slots)
 			if used_slots == capacity:
+				await get_tree().create_timer(1).timeout
 				plating()
 				
 	if Input.is_action_just_pressed("interact_2"):
@@ -59,6 +60,7 @@ func _input(_event):
 					lastIngredient.queue_free()
 					used_slots += 1
 			if used_slots == capacity:
+				await get_tree().create_timer(1).timeout
 				plating()
 
 func plating():
